@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tammaro Family Greece Trip 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #c9963f;
+  --sky: #87ceeb;
+  --dark: #0f1e2d;
+  --muted: #7a8c9e;
+  --white: #faf8f4;
+  --card-bg: rgba(255,255,255,0.04);
+  --card-border: rgba(255,255,255,0.08);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'DM Sans',sans-serif; background:#162940; color:var(--white); overflow-x:hidden; }
+
+/* HEADER */
+.site-header {
+  background: linear-gradient(135deg,#0f1e2d 0%,#1a3d5c 100%);
+  border-bottom: 1px solid rgba(201,150,63,0.3);
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 62px;
+  position: sticky;
+  top: 0;
+  z-index: 300;
+}
+.header-brand { display:flex; align-items:baseline; gap:10px; }
+.header-title { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:300; }
+.header-title em { font-style:italic; color:var(--sky); }
+.header-tag { font-family:'Bebas Neue',sans-serif; font-size:11px; letter-spacing:4px; color:var(--gold); }
+.header-sub { font-size:11px; color:rgba(255,255,255,0.3); }
+
+/* NAV */
+.nav-tabs {
+  display:flex; overflow-x:auto; scrollbar-width:none;
+  background:rgba(10,20,32,0.95);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  position:sticky; top:62px; z-index:299;
+}
+.nav-tabs::-webkit-scrollbar{display:none;}
+.nav-tab {
+  flex-shrink:0; padding:13px 20px;
+  font-family:'Bebas Neue',sans-serif; font-size:13px; letter-spacing:2.5px;
+  color:rgba(255,255,255,0.4); cursor:pointer;
+  border:none; border-bottom:2px solid transparent;
+  background:none; white-space:nowrap; transition:all 0.2s;
+}
+.nav-tab:hover { color:rgba(255,255,255,0.8); }
+.nav-tab.active { color:var(--gold); border-bottom-color:var(--gold); }
+
+/* SECTIONS */
+.section { display:none; }
+.section.active { display:block; }
+.section-inner { max-width:1200px; margin:0 auto; padding:44px 22px 68px; }
+.section-header { margin-bottom:36px; }
+.section-eyebrow { font-family:'Bebas Neue',sans-serif; font-size:11px; letter-spacing:5px; color:var(--gold); margin-bottom:8px; }
+.section-title { font-family:'Cormorant Garamond',serif; font-size:clamp(32px,5vw,56px); font-weight:300; line-height:1.05; }
+.section-title em { font-style:italic; color:var(--sky); }
+.section-desc { margin-top:12px; font-size:14px; color:rgba(255,255,255,0.52); max-width:680px; line-height:1.78; }
+
+/* PHOTO STRIP */
+.photo-strip { display:flex; gap:10px; overflow-x:auto; scrollbar-width:thin; scrollbar-color:rgba(255,255,255,0.12) transparent; padding-bottom:8px; margin-bottom:36px; }
+.photo-strip::-webkit-scrollbar { height:4px; }
+.photo-strip::-webkit-scrollbar-track { background:transparent; }
+.photo-strip::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.15); border-radius:2px; }
+.photo-item { flex-shrink:0; width:270px; height:178px; border-radius:11px; overflow:hidden; position:relative; border:1px solid rgba(255,255,255,0.1); background:#1a3050; }
+.photo-item img { width:100%; height:100%; object-fit:cover; transition:transform 0.4s ease; display:block; }
+.photo-item:hover img { transform:scale(1.06); }
+.photo-cap { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(to top,rgba(0,0,0,0.72),transparent); padding:24px 12px 10px; font-size:11px; color:rgba(255,255,255,0.9); letter-spacing:0.4px; }
+
+/* THREE COL */
+.places-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:22px; }
+@media(max-width:900px){.places-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.places-grid{grid-template-columns:1fr;}}
+.col-title { font-family:'Bebas Neue',sans-serif; font-size:11px; letter-spacing:4px; color:var(--gold); margin-bottom:13px; display:flex; align-items:center; gap:8px; }
+.col-title::after { content:''; flex:1; height:1px; background:rgba(201,150,63,0.2); }
+.place { padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.05); }
+.place:last-child { border-bottom:none; }
+.place-name { font-size:14px; font-weight:500; color:var(--white); margin-bottom:3px; }
+.place-note { font-size:12px; color:var(--muted); line-height:1.62; }
+.place-tip { font-size:11px; color:var(--sky); margin-top:3px; font-style:italic; }
+.stars { color:var(--gold); font-size:10px; margin-bottom:2px; }
+.tip-box { background:linear-gradient(135deg,rgba(201,150,63,0.07),rgba(135,206,235,0.04)); border:1px solid rgba(201,150,63,0.2); border-radius:10px; padding:15px 18px; margin-top:18px; }
+.tip-label { font-family:'Bebas Neue',sans-serif; font-size:10px; letter-spacing:4px; color:var(--gold); margin-bottom:7px; }
+.tip-box p { font-size:12px; color:rgba(255,255,255,0.62); line-height:1.82; }
+
+/* OVERVIEW */
+.glance-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(270px,1fr)); gap:13px; }
+.glance-card { background:var(--card-bg); border:1px solid var(--card-border); border-radius:12px; padding:17px 20px; cursor:pointer; transition:all 0.2s; }
+.glance-card:hover { border-color:rgba(201,150,63,0.35); background:rgba(255,255,255,0.06); }
+.glance-dest { font-family:'Cormorant Garamond',serif; font-size:21px; font-weight:300; margin-bottom:2px; }
+.glance-date { font-size:10px; color:var(--muted); letter-spacing:0.4px; margin-bottom:9px; }
+.glance-do { font-size:12px; color:rgba(255,255,255,0.52); line-height:1.82; }
+.glance-do strong { color:var(--sky); font-weight:500; }
+
+.ship-path { display:flex; align-items:center; gap:5px; overflow-x:auto; scrollbar-width:none; padding:14px 0 22px; }
+.ship-path::-webkit-scrollbar{display:none;}
+.ship-stop { flex-shrink:0; text-align:center; }
+.ship-dot { width:9px; height:9px; border-radius:50%; background:var(--gold); margin:0 auto 5px; }
+.ship-line { flex:1; height:1px; background:linear-gradient(90deg,var(--gold),rgba(201,150,63,0.15)); min-width:18px; flex-shrink:0; }
+.ship-label { font-size:10px; color:rgba(255,255,255,0.38); white-space:nowrap; }
+
+/* TIPS */
+.tips-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:13px; }
+.tip-card { background:var(--card-bg); border:1px solid var(--card-border); border-radius:12px; padding:19px; }
+.tip-icon { font-size:22px; margin-bottom:9px; }
+.tip-title { font-family:'Cormorant Garamond',serif; font-size:18px; color:var(--white); margin-bottom:5px; }
+.tip-body { font-size:12px; color:rgba(255,255,255,0.48); line-height:1.72; }
+
+/* MAP - self-contained SVG */
+.map-wrap { position:relative; background:#0d2137; border-radius:14px; border:1px solid rgba(255,255,255,0.1); overflow:hidden; margin-bottom:14px; }
+.map-wrap svg { display:block; width:100%; height:auto; }
+.map-tooltip {
+  position:absolute; background:#0f1e2d; border:1px solid rgba(201,150,63,0.35);
+  border-radius:10px; padding:12px 15px; font-size:12px; color:var(--white);
+  pointer-events:none; opacity:0; transition:opacity 0.2s;
+  box-shadow:0 8px 28px rgba(0,0,0,0.5); min-width:200px; max-width:240px; z-index:10;
+}
+.map-tooltip.show { opacity:1; }
+.map-tooltip strong { font-family:'Cormorant Garamond',serif; font-size:16px; font-weight:300; display:block; margin-bottom:2px; }
+.map-tooltip em { font-size:10px; color:var(--gold); font-style:normal; letter-spacing:1px; display:block; margin-bottom:5px; }
+.map-tooltip span { color:rgba(255,255,255,0.6); line-height:1.55; display:block; }
+.map-pin { cursor:pointer; }
+.map-pin circle { transition:r 0.2s; }
+.map-pin:hover circle.outer { r:12; }
+.map-btn { display:inline-block; margin-top:8px; background:rgba(201,150,63,0.15); border:1px solid rgba(201,150,63,0.3); border-radius:20px; padding:3px 12px; font-size:11px; color:var(--gold); cursor:pointer; font-family:'Bebas Neue',sans-serif; letter-spacing:2px; }
+
+.map-legend { display:flex; gap:14px; flex-wrap:wrap; margin-bottom:40px; }
+.legend-item { display:flex; align-items:center; gap:7px; font-size:12px; color:rgba(255,255,255,0.52); }
+.legend-dot { width:9px; height:9px; border-radius:50%; flex-shrink:0; }
+
+footer { background:var(--dark); text-align:center; padding:34px 22px; border-top:1px solid rgba(255,255,255,0.06); }
+footer p { font-family:'Cormorant Garamond',serif; font-size:17px; font-style:italic; color:rgba(255,255,255,0.28); }
+</style>
+
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <style>
+    .city-map-wrapper {
+      width: 100%;
+      margin-top: 48px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .city-map-label {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 28px 22px 14px;
+    }
+    .map-legend-row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .mleg { font-size: 12px; color: var(--mc); font-family: 'DM Sans', sans-serif; }
+    .city-map-frame {
+      width: 100%;
+      height: 500px;
+    }
+    .leaflet-popup-content-wrapper {
+      background: #0f1e2d !important;
+      color: #faf8f4 !important;
+      border: 1px solid rgba(201,150,63,0.35) !important;
+      border-radius: 10px !important;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.5) !important;
+    }
+    .leaflet-popup-tip { background: #0f1e2d !important; }
+    .leaflet-popup-content { margin: 12px 15px !important; font-family: 'DM Sans', sans-serif; }
+    .pop-title { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 300; color: #faf8f4; margin-bottom: 3px; }
+    .pop-type { font-size: 10px; letter-spacing: 2px; font-family: 'Bebas Neue', sans-serif; margin-bottom: 5px; }
+    .pop-note { font-size: 12px; color: rgba(255,255,255,0.65); line-height: 1.55; }
+    .leaflet-container { background: #0d2137; }
+  </style>
+
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-brand">
+    <span class="header-title">Tammaro Family <em>Greece Trip</em> 2026</span>
+  </div>
+  <span class="header-sub">Athens · Santorini · Rhodes · Ephesus · Mykonos · Thessaloniki</span>
+</header>
+
+<div class="nav-tabs">
+  <button class="nav-tab active" onclick="showSection('overview')">Overview</button>
+  <button class="nav-tab" onclick="showSection('athens')">🏛 Athens</button>
+  <button class="nav-tab" onclick="showSection('santorini')">🌋 Santorini</button>
+  <button class="nav-tab" onclick="showSection('rhodes')">⚔️ Rhodes</button>
+  <button class="nav-tab" onclick="showSection('ephesus')">🏺 Ephesus</button>
+  <button class="nav-tab" onclick="showSection('mykonos')">🌀 Mykonos</button>
+  <button class="nav-tab" onclick="showSection('thessaloniki')">🏙 Thessaloniki</button>
+  <button class="nav-tab" onclick="showSection('tips')">🗺 Tips & Map</button>
+</div>
+
+<!-- ══ OVERVIEW ══ -->
+<div class="section active" id="sec-overview">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">August 2026 · Mediterranean Cruise</div>
+      <h2 class="section-title">Tammaro Family <em>Greece Trip 2026</em></h2>
+      <p class="section-desc">Ancient ruins, volcanic islands, medieval cities, and some of the best food in the world. Click any destination card below to explore sites, restaurants, and tips.</p>
+    </div>
+    <div class="ship-path">
+      <div class="ship-stop"><div class="ship-dot"></div><div class="ship-label">Athens<br>Aug 8</div></div>
+      <div class="ship-line"></div>
+      <div class="ship-stop"><div class="ship-dot"></div><div class="ship-label">Santorini<br>Aug 9</div></div>
+      <div class="ship-line"></div>
+      <div class="ship-stop"><div class="ship-dot"></div><div class="ship-label">Rhodes<br>Aug 10</div></div>
+      <div class="ship-line"></div>
+      <div class="ship-stop"><div class="ship-dot"></div><div class="ship-label">Ephesus<br>Aug 11</div></div>
+      <div class="ship-line"></div>
+      <div class="ship-stop"><div class="ship-dot"></div><div class="ship-label">Mykonos<br>Aug 12</div></div>
+      <div class="ship-line"></div>
+      <div class="ship-stop"><div class="ship-dot"></div><div class="ship-label">Thessaloniki<br>Aug 13</div></div>
+      <div class="ship-line"></div>
+      <div class="ship-stop"><div class="ship-dot" style="background:rgba(135,206,235,0.35)"></div><div class="ship-label">At Sea<br>Aug 14</div></div>
+      <div class="ship-line"></div>
+      <div class="ship-stop"><div class="ship-dot"></div><div class="ship-label">Athens<br>Aug 15</div></div>
+    </div>
+    <div class="glance-grid">
+      <div class="glance-card" onclick="showSection('athens')">
+        <div class="glance-dest">🏛️ Athens</div>
+        <div class="glance-date">Pre-Cruise · Aug 7–8 · Depart 5 PM from Piraeus</div>
+        <div class="glance-do"><strong>Must Do:</strong> Acropolis at dawn, Ancient Agora<br><strong>Eat:</strong> Bandiera, A Little Taste of Home<br><strong>Coffee:</strong> Coffee Joint (opens 6 AM!)</div>
+      </div>
+      <div class="glance-card" onclick="showSection('santorini')">
+        <div class="glance-dest">🌋 Santorini</div>
+        <div class="glance-date">Aug 9 · 7 AM – 10 PM · Tender Port</div>
+        <div class="glance-do"><strong>Hike:</strong> Fira–Oia caldera trail (10 km)<br><strong>See:</strong> Oia Castle sunset, Akrotiri ruins<br><strong>Eat:</strong> Metaxi Mas, Tholoto Brunch</div>
+      </div>
+      <div class="glance-card" onclick="showSection('rhodes')">
+        <div class="glance-dest">⚔️ Rhodes</div>
+        <div class="glance-date">Aug 10 · 9 AM – 7 PM</div>
+        <div class="glance-do"><strong>See:</strong> Medieval Old City, Grand Master Palace<br><strong>Explore:</strong> Lindos Acropolis + swim below<br><strong>Eat:</strong> at Thomas, The Ritualist</div>
+      </div>
+      <div class="glance-card" onclick="showSection('ephesus')">
+        <div class="glance-dest">🏺 Ephesus</div>
+        <div class="glance-date">Aug 11 · 8 AM – 8 PM · Kusadasi, Turkey</div>
+        <div class="glance-do"><strong>Must Do:</strong> Ephesus Ancient City (go at 8 AM)<br><strong>See:</strong> Temple of Artemis, Terrace Houses<br><strong>Tip:</strong> Book private tour from port</div>
+      </div>
+      <div class="glance-card" onclick="showSection('mykonos')">
+        <div class="glance-dest">🌀 Mykonos</div>
+        <div class="glance-date">Aug 12 · 7 AM – 6 PM · Tender Port</div>
+        <div class="glance-do"><strong>See:</strong> Windmills, Little Venice<br><strong>Beach:</strong> Ornos Beach (crystal water)<br><strong>Eat:</strong> Kavos Taverna, Pelican (7 AM!)</div>
+      </div>
+      <div class="glance-card" onclick="showSection('thessaloniki')">
+        <div class="glance-dest">🏙️ Thessaloniki</div>
+        <div class="glance-date">Aug 13 · 9 AM – 9 PM</div>
+        <div class="glance-do"><strong>See:</strong> White Tower, Arch of Galerius<br><strong>Stroll:</strong> Aristotelous Square to the sea<br><strong>Eat:</strong> Kanoula, The Rouga</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ATHENS ══ -->
+<div class="section" id="sec-athens">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">Day 1 · Pre-Cruise · Ship departs Aug 8 at 5 PM from Piraeus</div>
+      <h2 class="section-title">🏛️ <em>Athens</em></h2>
+      <p class="section-desc">Morning and early afternoon before boarding. Prioritize the Acropolis at 8 AM opening, then wander the Ancient Agora and Monastiraki. Leave for Piraeus port by 3 PM — 40 min by Metro Green Line or ~€30 taxi.</p>
+    </div>
+    <div class="photo-strip">
+      <div class="photo-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/The_Parthenon_in_Athens.jpg" alt="Acropolis Athens">
+        <div class="photo-cap">Acropolis & Parthenon</div>
+      </div>
+      <div class="photo-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Ancient_Agora_of_Athens.jpg" alt="Ancient Agora">
+        <div class="photo-cap">Ancient Agora & Temple of Hephaestus</div>
+      </div>
+      <div class="photo-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/71/Monastiraki_Flea_Market_08.jpg" alt="Monastiraki">
+        <div class="photo-cap">Monastiraki Square</div>
+      </div>
+      <div class="photo-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Attica_06-13_Athens_25_Olympian_Zeus_Temple.jpg" alt="Temple Zeus">
+        <div class="photo-cap">Temple of Olympian Zeus</div>
+      </div>
+    </div>
+    <div class="places-grid">
+      <div>
+        <div class="col-title">🗿 Sites to See</div>
+        <div class="place"><div class="stars">★★★★★ 4.8</div><div class="place-name">Acropolis & Parthenon</div><div class="place-note">The crown jewel of ancient Greece. Go at 8 AM opening to beat heat and crowds. Allow 2.5 hrs for the full site.</div><div class="place-tip">💡 Book tickets online — €30/person. Combo ticket covers the Agora.</div></div>
+        <div class="place"><div class="stars">★★★★★ 4.7</div><div class="place-name">Ancient Agora</div><div class="place-note">The civic heart of ancient Athens. The Temple of Hephaestus is one of the best-preserved Greek temples on Earth. The Stoa of Attalos museum inside is excellent.</div><div class="place-tip">💡 Included in Acropolis combo ticket — don't skip it.</div></div>
+        <div class="place"><div class="stars">★★★★☆ 4.6</div><div class="place-name">National Archaeological Museum</div><div class="place-note">Mask of Agamemnon, Artemision Bronze — world class. Note: Tuesday hours are 1–8 PM only.</div></div>
+        <div class="place"><div class="stars">★★★★☆ 4.4</div><div class="place-name">Temple of Olympian Zeus</div><div class="place-note">Massive Corinthian columns near Hadrian's Arch. Impressive even from outside the fence for free.</div></div>
+        <div class="place"><div class="place-name">Monastiraki & Plaka</div><div class="place-note">The charming old neighborhoods below the Acropolis — great for wandering, coffee, and last-minute souvenirs before boarding.</div></div>
+      </div>
+      <div>
+        <div class="col-title">🍽️ Restaurants</div>
+        <div class="place"><div class="stars">★★★★★ 4.8</div><div class="place-name">Bandiera</div><div class="place-note">In Psiri/Monastiraki — legendary moussaka, friendly owner, complimentary dessert, fair prices.</div><div class="place-tip">💡 Closed Mondays. Reserve ahead. Opens 1 PM.</div></div>
+        <div class="place"><div class="stars">★★★★★ 4.8</div><div class="place-name">A Little Taste of Home</div><div class="place-note">Slow-cooked lamb and beef brisket that falls off the bone. Near the Ancient Agora. One of Athens' most celebrated restaurants.</div><div class="place-tip">💡 Closed Tuesdays. Opens 1 PM.</div></div>
+        <div class="place"><div class="stars">★★★★★ 4.7</div><div class="place-name">Karamanlidika</div><div class="place-note">Greek-Anatolian deli-restaurant. Incredible saganaki, stuffed vine leaves, traditional sausage. Open from 9 AM — great for late breakfast or lunch.</div></div>
+        <div class="place"><div class="stars">★★★★★ 4.8</div><div class="place-name">MIRONI Restaurant</div><div class="place-note">Authentic Greek kitchen with live music some evenings. Generous portions, great for a group.</div></div>
+        <div class="place"><div class="stars">★★★★★ 4.7</div><div class="place-name">Antitamos</div><div class="place-note">No reservations, worth the wait. Feta Antitamos, lamb chops, moussaka. One of Athens' most beloved tavernas with massive portions.</div></div>
+      </div>
+      <div>
+        <div class="col-title">☕ Coffee Shops</div>
+        <div class="place"><div class="stars">★★★★★ 4.9</div><div class="place-name">Coffee Joint</div><div class="place-note">Family-run gem open from 6 AM. Best omelets and spanakopita in Athens. The perfect first-morning stop before the Acropolis.</div><div class="place-tip">💡 Closed Sundays.</div></div>
+        <div class="place"><div class="stars">★★★★★ 4.8</div><div class="place-name">Myller Coffee Shop</div><div class="place-note">Specialty coffee in Monastiraki. Exceptional double cappuccino. Small terrace worth the extra 30-cent surcharge.</div></div>
+        <div class="place"><div class="stars">★★★★★ 4.8</div><div class="place-name">Samba Coffee Roasters</div><div class="place-note">One of Athens' best roasters. Freddo flat white is outstanding. Neighborhood feel with serious coffee quality.</div></div>
+        <div class="place"><div class="stars">★★★★☆ 4.7</div><div class="place-name">Little Tree Books & Coffee</div><div class="place-note">Bookshop café just below the Acropolis — perfect post-hike stop. Greek yogurt, great coffee, cozy courtyard.</div><div class="place-tip">💡 Closed Mondays. 2-hour seating limit.</div></div>
+        <div class="tip-box"><div class="tip-label">💡 Athens Tips</div><p>Start at 8 AM at the Acropolis before the August heat peaks (35°C+). Wear sun hats and carry water. After the Agora, enjoy Little Tree, then lunch at Bandiera or Karamanlidika. Leave for Piraeus Metro (Green Line, direct) by 3 PM.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAP: athens -->
+  <div class="city-map-wrapper">
+    <div class="city-map-label">
+      <div class="section-eyebrow">📍 Destinations on the Map</div>
+      <div class="map-legend-row">
+        <span class="mleg" style="--mc:#e74c3c">● Sights &amp; Attractions</span>
+        <span class="mleg" style="--mc:#27ae60">● Restaurants</span>
+        <span class="mleg" style="--mc:#c9963f">● Cafés</span>
+        <span class="mleg" style="--mc:#2980b9">● Port / Arrival</span>
+      </div>
+    </div>
+    <div id="map_athens" class="city-map-frame"></div>
+  </div>
+</div>
+
+<!-- ══ SANTORINI ══ -->
+<div class="section" id="sec-santorini">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">Day 2 · Aug 9 · 7 AM – 10 PM · Tender Port</div>
+      <h2 class="section-title">🌋 <em>Santorini</em></h2>
+      <p class="section-desc">You have 15 full hours — the most of any port. The iconic Fira–Oia caldera hike is one of the great walks in Europe. Step off the tender at 7 AM and head straight to the trailhead.</p>
+    </div>
+    <div class="photo-strip">
+      <div class="photo-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Oia_Santorini_Greece.jpg" alt="Oia Santorini">
+        <div class="photo-cap">Oia Village & Blue Domes</div>
+      </div>
+      <div class="photo-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Excavations_at_Akrotiri%2C_Santorini_-_sisaphus.jpg" alt="Akrotiri">
+        <div class="photo-cap">Akrotiri Archaeological Site</div>
+      </div>
+      <div class="photo-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Santorini_panoramic_from_the_crater_rim_above_Athinios_port_-_02.jpg" alt="Caldera">
+        <div class="photo-cap">Santorini Caldera Views</div>
+      </div>
+      <div class="photo-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Cape_Akrotiri_lighthouse_-_Santorini_-_Greece_-_03.jpg" alt="Lighthouse">
+        <div class="photo-cap">Akrotiri Lighthouse</div>
+      </div>
+    </div>
+    <div class="places-grid">
+      <div>
+        <div class="col-title">🗿 Sites & Activities</div>
+        <div class="place"><div class="stars">★★★★★ 4.8</div><div class="place-name">Fira to Oia Caldera Hike</div><div class="place-note">~10 km along the volcanic caldera rim. Allow 3–4 hours. Jaw-dropping views the entire way.</div><div class="place-tip">⚡ Start at 7 AM right off the tender — beat the heat and arrive Oia for sunset!</div></div>
+        <div class="place"><div class="stars">★★★★☆ 4.4</div><div class="place-name">Akrotiri Archaeological Site</div><div class="place-note">The Minoan "Pompeii" of Santorini — buried by the 1600 BC eruption. Covered site, comfortable even in heat. Only 5% excavated so far!</div><div class="place-tip">💡 Closed Tuesdays. Your visit is Sunday — perfect!</div></div>
+        <div class="place"><div class="stars">★★★★☆ 4.5</div><div class="place-name">Akrotiri Lighthouse</div><div class="place-note">Southern tip of the island. Stunning sea and cliff views. Best early morning or late afternoon. Very limited parking.</div></div>
+        <div class="place"><div class="stars">★★★★★ 4.7</div><div class="place-name">Castle of Oia at Sunset</div><div class="place-note">The iconic blue-dome sunset spot. Arrive 1 hour before sunset to claim a good viewing perch. Allow 2 hrs to explore all of Oia village.</div><div class="place-tip">💡 The hike ends right here — perfect timing!</div></div>
+        <div class="place"><div class="stars">★★★★☆ 4.7</div><div class="place-name">Heart of Santorini</div><div class="place-note">Short hike to a heart-shaped rock formation with caldera views. Off the beaten path, easy trail, stunning photos.</div></div>
+      </div>
+      <div>
+        <div class="col-title">🍽️ Restaurants</div>
+        <div class="place"><div class="stars">⭐ 5.0</div><div class="place-name">Tholoto Brunch & Restaurant</div><div class="place-note">Arguably the best in Santorini. Lamb shank, eggplant cheesecake, Dubai cheesecake dessert. Reserve weeks ahead for August.</div><div class="place-tip">💡 Book immediately — August fills months in advance.</div></div>
+        <div class="place"><div class="stars">★★★★☆ 4.7</div><div class="place-name">Metaxi Mas</div><div class="place-note">Village of Exo Gonia — the real deal. Best dolmades many visitors have ever had. Sea views, free raki and dessert, excellent value.</div><div class="place-tip">💡 Complimentary bread, raki, olives, and cheese on arrival!</div></div>
+        <div class="place"><div class="stars">★★★★☆ 4.7</div><div class="place-name">Parea Tavern</div><div class="place-note">Rooftop terrace in Fira. Moussaka is a standout. Fresh grilled seafood, warm staff, complimentary cheesecake jars for dessert.</div></div>
+        <div class="tip-box"><div class="tip-label">📋 Suggested Day Plan</div><p><strong>7 AM</strong> — Tender to Fira, start caldera hike<br><strong>11 AM</strong> — Arrive Oia, explore + lunch<br><strong>2 PM</strong> — Taxi to Akrotiri ruins<br><strong>4 PM</strong> — Lighthouse &amp; nearby beach swim<br><strong>7 PM</strong> — Return to Oia for Castle sunset<br><strong>9:30 PM</strong> — Last tender back to ship</p></div>
+      </div>
+      <div>
+        <div class="col-title">💡 Tips & Logistics</div>
+        <div class="place"><div class="place-name">The Hike</div><div class="place-note">Proper shoes required — not sandals. Pack 2L water each, sunscreen, hats. Well-marked trail with a mix of paved and rocky terrain.</div></div>
+        <div class="place"><div class="place-name">Tender Tips</div><div class="place-note">Get early tender tickets immediately on embarkation morning. The cable car from the old port gets extremely crowded — take it up, walk the 587 stairs down for the views.</div></div>
+        <div class="place"><div class="place-name">August Heat Warning</div><div class="place-note">30–35°C on an exposed volcanic ridge. Starting at 7 AM is essential. Bring electrolytes — not just water. The views are worth every step.</div></div>
+        <div class="place"><div class="place-name">Getting Around</div><div class="place-note">KTEL buses are cheap and reliable. Taxis are expensive — share at taxi stands. ATV rentals popular but risky on narrow roads. Oia is very walkable once you're there.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAP: santorini -->
+  <div class="city-map-wrapper">
+    <div class="city-map-label">
+      <div class="section-eyebrow">📍 Destinations on the Map</div>
+      <div class="map-legend-row">
+        <span class="mleg" style="--mc:#e74c3c">● Sights &amp; Attractions</span>
+        <span class="mleg" style="--mc:#27ae60">● Restaurants</span>
+        <span class="mleg" style="--mc:#c9963f">● Cafés</span>
+        <span class="mleg" style="--mc:#2980b9">● Port / Arrival</span>
+      </div>
+    </div>
+    <div id="map_santorini" class="city-map-frame"></div>
+  </div>
+</div>
+
+<!-- ══ RHODES ══ -->
+<div class="section" id="sec-rhodes">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">Day 3 · Aug 10 · 9 AM – 7 PM</div>
+      <h2 class="section-title">⚔️ <em>Rhodes</em></h2>
+      <p class="section-desc">10 hours in one of the world's most magnificent medieval walled cities — plus the option to venture south to the spectacular Lindos Acropolis. The island has something for everyone.</p>
+    </div>
+    <div class="photo-strip">
+      <div class="photo-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Rhodes_Old_Town_-_panoramio.jpg" alt="Rhodes Old Town">
+        <div class="photo-cap">Medieval City of Rhodes</div>
+      </div>
+      <div class="photo-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/Palace_of_the_Grand_Master_of_the_Knights_of_Rhodes.jpg" alt="Palace Grand Master">
+        <div class="photo-cap">Palace of the Grand Master</div>
+      </div>
+      <div class="photo-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Acropolis_of_Lindos_02.jpg" alt="Lindos Acropolis">
+        <div class="photo-cap">Lindos Acropolis</div>
+      </div>
+      <div class="photo-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Lindos_bay.jpg" alt="Lindos Bay">
+        <div class="photo-cap">Lindos Village & Bay</div>
+      </div>
+    </div>
+    <div class="places-grid">
+      <div>
+        <div class="col-title">🗿 Sites to See</div>
+        <div class="place"><div class="stars">★★★★★ 4.8</div><div class="place-name">Medieval City of Rhodes</div><div class="place-note">UNESCO World Heritage Site. One of the best-preserved medieval towns on Earth. The Street of Knights is extraordinary. Free to wander — plan 2–3 hours.</div></div>
+        <div class="place"><div class="stars">★★★★☆ 4.6</div><div class="place-name">Palace of the Grand Master</div><div class="place-note">Inside the walled city — enormous and beautifully preserved. Mosaic floors, stunning architecture. "Like stepping into a Disney movie." €20 entry.</div></div>
+        <div class="place"><div class="stars">★★★★☆ 4.6</div><div class="place-name">Lindos Acropolis</div><div class="place-note">45 min south of Rhodes Town. Doric acropolis on a cliff above a gorgeous white village and turquoise bay. Steep climb, magnificent views. €20 entry.</div><div class="place-tip">💡 Swim at St. Paul's Bay below after climbing — crystal clear water!</div></div>
+        <div class="place"><div class="stars">★★★★☆ 4.6</div><div class="place-name">Archaeological Site of Kamiros</div><div class="place-note">An entire ancient Greek city on a hillside with sea views. Quieter and very atmospheric. €10 entry, free parking.</div></div>
+      </div>
+      <div>
+        <div class="col-title">🍽️ Restaurants</div>
+        <div class="place"><div class="stars">★★★★★ 4.8</div><div class="place-name">at Thomas</div><div class="place-note">Hidden inside the Medieval City. Eggplant salad, shrimp Thomas, mussels. Many visitors call it the best meal of their entire Greece trip. Great value.</div><div class="place-tip">💡 Opens at noon. Hard to find — worth asking a local.</div></div>
+        <div class="place"><div class="stars">★★★★★ 4.9</div><div class="place-name">The Ritualist</div><div class="place-note">Creative cuisine under a beautiful tree in an Old Town courtyard. Outstanding steak, creative cocktails, sophisticated atmosphere. Rhodes' most exciting restaurant.</div></div>
+        <div class="place"><div class="stars">★★★★☆ 4.5</div><div class="place-name">Mama Sofia</div><div class="place-note">Beloved Old Town institution. Great seafood platter, warm hospitality. The owner personally celebrates guests on special occasions.</div></div>
+        <div class="tip-box"><div class="tip-label">📋 Suggested Day Plan</div><p><strong>9 AM</strong> — Taxi to Lindos (~€30 each way)<br><strong>10–12 PM</strong> — Lindos Acropolis + swim St. Paul's Bay<br><strong>1 PM</strong> — Lunch in Lindos village, return to town<br><strong>3–6 PM</strong> — Medieval City + Grand Master Palace<br><strong>6 PM</strong> — Dinner at at Thomas or The Ritualist</p></div>
+      </div>
+      <div>
+        <div class="col-title">💡 Tips & Logistics</div>
+        <div class="place"><div class="place-name">Lindos Visit</div><div class="place-note">The climb to the acropolis is steep and exposed to sun. Go early, bring water. Below the acropolis, St. Paul's Bay is one of Greece's most beautiful swimming spots.</div></div>
+        <div class="place"><div class="place-name">Medieval City Walk</div><div class="place-note">The Old City is large — easily 3+ km of cobblestones. Comfortable shoes essential. Explore the quieter northern quarter away from the cruise crowds.</div></div>
+        <div class="place"><div class="place-name">Time Management</div><div class="place-note">9 AM dock, 7 PM departure. Lindos + Old City is ambitious but very doable with an early start and taxis. Alternatively, spend the whole day in the magnificent Medieval City.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAP: rhodes -->
+  <div class="city-map-wrapper">
+    <div class="city-map-label">
+      <div class="section-eyebrow">📍 Destinations on the Map</div>
+      <div class="map-legend-row">
+        <span class="mleg" style="--mc:#e74c3c">● Sights &amp; Attractions</span>
+        <span class="mleg" style="--mc:#27ae60">● Restaurants</span>
+        <span class="mleg" style="--mc:#c9963f">● Cafés</span>
+        <span class="mleg" style="--mc:#2980b9">● Port / Arrival</span>
+      </div>
+    </div>
+    <div id="map_rhodes" class="city-map-frame"></div>
+  </div>
+</div>
+
+<!-- ══ EPHESUS ══ -->
+<div class="section" id="sec-ephesus">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">Day 4 · Aug 11 · 8 AM – 8 PM · Kusadasi, Turkey</div>
+      <h2 class="section-title">🏺 <em>Ephesus</em></h2>
+      <p class="section-desc">One of the most spectacular ancient cities on Earth — and you have 12 hours. Get there at 8 AM sharp before the heat and tour bus invasion. This will be one of the most memorable days of the trip.</p>
+    </div>
+    <div class="photo-strip">
+      <div class="photo-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Celsus_Library_in_Ephesus.jpg" alt="Library Celsus">
+        <div class="photo-cap">Library of Celsus</div>
+      </div>
+      <div class="photo-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Ephesus_Marble_Street_in_1992_012.jpg" alt="Ephesus marble street">
+        <div class="photo-cap">Marble Streets of Ephesus</div>
+      </div>
+      <div class="photo-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/The_Theatre_of_Ephesus_2.jpg" alt="Great Theatre">
+        <div class="photo-cap">The Great Theatre — 25,000 Seats</div>
+      </div>
+      <div class="photo-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/TR.IZ.Selcuk_Ephesus_2011-10-04_Temple-of-Artemis_07_3x2-R_5K.jpg" alt="Temple of Artemis">
+        <div class="photo-cap">Temple of Artemis (7 Wonders)</div>
+      </div>
+    </div>
+    <div class="places-grid">
+      <div>
+        <div class="col-title">🗿 Sites to See</div>
+        <div class="place"><div class="stars">★★★★★ 4.8</div><div class="place-name">Ephesus Ancient City</div><div class="place-note">Library of Celsus, 25,000-seat Great Theatre, marble-paved streets — extraordinarily preserved. Plan 3–4 hours. Entry ~€40/person for foreigners.</div><div class="place-tip">⚡ Arrive at 8 AM opening — ferociously hot and crowded by 10:30 AM.</div></div>
+        <div class="place"><div class="place-name">Terrace Houses (Extra Entry ~€15)</div><div class="place-note">Roman-era homes with 2,000 year-old mosaics and frescoes still intact. Shaded, air-conditioned, and absolutely remarkable. Do not skip this.</div><div class="place-tip">💡 Buy separately at the gate or book online in advance.</div></div>
+        <div class="place"><div class="stars">★★★★☆ 4.2</div><div class="place-name">Temple of Artemis</div><div class="place-note">One of the Seven Wonders of the Ancient World. One column still stands — storks nest on top in spring. Free entry, 5 min from the site. Profoundly humbling.</div></div>
+        <div class="place"><div class="stars">★★★★☆ 4.6</div><div class="place-name">Kusadasi Castle</div><div class="place-note">10-minute walk from the cruise port. Ottoman castle on a small island — good if you return with time to spare. €10 entry.</div></div>
+        <div class="place"><div class="place-name">Selçuk Town & Museum</div><div class="place-note">Charming town next to Ephesus holding the actual artifacts from the site. Great for lunch and a very authentic, non-touristy experience.</div></div>
+      </div>
+      <div>
+        <div class="col-title">🍽️ Food & Logistics</div>
+        <div class="place"><div class="place-name">Ephesus Site Café</div><div class="place-note">Inside the site near the south gate. Good snacks and macarons. The site cats are very friendly and will try to share your lunch.</div></div>
+        <div class="place"><div class="place-name">Lunch in Selçuk</div><div class="place-note">Authentic Turkish lunch — gözleme, kebab, fresh pide. Restaurants around the main square are excellent value and far better than the tourist port restaurants.</div></div>
+        <div class="place"><div class="place-name">ADA Anatolia Tours</div><div class="place-note">Top-rated private agency near the port. ~$90/person all-in: Ephesus + Terrace Houses + Temple of Artemis + traditional lunch + all entry fees. Guides are universally praised.</div><div class="place-tip">💡 Private tour recommended — transforms the experience.</div></div>
+        <div class="tip-box"><div class="tip-label">📋 Suggested Day Plan</div><p><strong>8 AM</strong> — Off ship, taxi/tour to Ephesus (15 min)<br><strong>8:30–12 PM</strong> — Ephesus city + Terrace Houses<br><strong>12 PM</strong> — Temple of Artemis (5 min drive)<br><strong>1–2:30 PM</strong> — Lunch in Selçuk + museum<br><strong>3–5:30 PM</strong> — Return to port, Castle, shopping<br><strong>7:30 PM</strong> — Back aboard before 8 PM departure</p></div>
+      </div>
+      <div>
+        <div class="col-title">💡 Practical Notes</div>
+        <div class="place"><div class="place-name">Getting There</div><div class="place-note">Taxis from port to Ephesus ~$15–20 USD each way. ADA Anatolia private tour at ~$90/person all-in is the sweet spot between cost and quality.</div></div>
+        <div class="place"><div class="place-name">Currency & Visas</div><div class="place-note">You're in Turkey — exchange some USD or Euros to Turkish Lira for small vendors. Check current e-Visa requirements for US passport holders before your trip.</div></div>
+        <div class="place"><div class="place-name">Shoes & Sun</div><div class="place-note">Marble streets are uneven and slippery. Closed-toe shoes required. August heat can reach 40°C here. Plan 4L of water per person — this may be the hottest day of the trip.</div></div>
+        <div class="place"><div class="place-name">3D Exit Theatre</div><div class="place-note">At the exit, a 10–15 min 3D animation shows Ephesus in its prime. Worth watching for context after walking the site.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAP: ephesus -->
+  <div class="city-map-wrapper">
+    <div class="city-map-label">
+      <div class="section-eyebrow">📍 Destinations on the Map</div>
+      <div class="map-legend-row">
+        <span class="mleg" style="--mc:#e74c3c">● Sights &amp; Attractions</span>
+        <span class="mleg" style="--mc:#27ae60">● Restaurants</span>
+        <span class="mleg" style="--mc:#c9963f">● Cafés</span>
+        <span class="mleg" style="--mc:#2980b9">● Port / Arrival</span>
+      </div>
+    </div>
+    <div id="map_ephesus" class="city-map-frame"></div>
+  </div>
+</div>
+
+<!-- ══ MYKONOS ══ -->
+<div class="section" id="sec-mykonos">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">Day 5 · Aug 12 · 7 AM – 6 PM · Tender Port</div>
+      <h2 class="section-title">🌀 <em>Mykonos</em></h2>
+      <p class="section-desc">11 hours on Greece's most glamorous island. Early morning is magical here — take the first tender and you'll have the windmills practically to yourselves. Front-load your sightseeing; midday is wall-to-wall with cruise visitors.</p>
+    </div>
+    <div class="photo-strip">
+      <div class="photo-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Boats-in-Mykonos.jpg" alt="Mykonos harbor">
+        <div class="photo-cap">Mykonos Old Port</div>
+      </div>
+      <div class="photo-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Mykonos_Windmills_2.jpg" alt="Mykonos windmills">
+        <div class="photo-cap">Iconic Mykonos Windmills</div>
+      </div>
+      <div class="photo-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/df/Little_Venice%2C_Mykonos.jpg" alt="Little Venice">
+        <div class="photo-cap">Little Venice</div>
+      </div>
+      <div class="photo-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/20100706_Mykonos_chora_panorama_Greece.jpg" alt="Mykonos town">
+        <div class="photo-cap">Mykonos Chora Old Town</div>
+      </div>
+    </div>
+    <div class="places-grid">
+      <div>
+        <div class="col-title">🗿 Sites & Activities</div>
+        <div class="place"><div class="stars">★★★★☆ 4.6</div><div class="place-name">Windmills of Mykonos</div><div class="place-note">16th-century Venetian mills on the hill above town. Free. Best at 7 AM before anyone arrives, or at sunset. The most iconic view on the island.</div></div>
+        <div class="place"><div class="place-name">Little Venice</div><div class="place-note">Old houses built right over the sea. Beautiful for photos. Bars fill at sunset — arrive early for the best light and fewer people.</div></div>
+        <div class="place"><div class="stars">★★★★☆ 4.5</div><div class="place-name">Armenistis Lighthouse</div><div class="place-note">15 min drive — best by scooter or ATV. Incredible panoramic views, almost nobody there early morning. A worthwhile detour with spectacular scenery.</div></div>
+        <div class="place"><div class="stars">★★★★☆ 4.3</div><div class="place-name">Ornos Beach</div><div class="place-note">One of the most family-friendly beaches — crystal clear water, sandy bottom, visible fish. Sunbeds from €20/pair with food service. Short bus ride from town.</div></div>
+        <div class="place"><div class="place-name">Mykonos Chora (Old Town)</div><div class="place-note">Get beautifully lost in the maze of white alleyways — built to confuse pirates. Charming churches, boutiques, cats absolutely everywhere.</div></div>
+      </div>
+      <div>
+        <div class="col-title">🍽️ Restaurants</div>
+        <div class="place"><div class="stars">★★★★★ 4.8</div><div class="place-name">Kavos Taverna</div><div class="place-note">Seafood by the sea in the Old Port. Whole sea bass, octopus salad, honey feta. Views of Little Venice. Ask for Maria — she's a local legend.</div><div class="place-tip">💡 Opens 10 AM. Great early lunch before the crowds arrive.</div></div>
+        <div class="place"><div class="stars">★★★★★ 4.8</div><div class="place-name">La Petite Taverne Windmills</div><div class="place-note">Right by the windmills. Stunning moussaka, lemon lamb, excellent spanakopita. Quieter vibe than most of Mykonos. Consistently excellent.</div></div>
+        <div class="place"><div class="stars">★★★★★ 4.8</div><div class="place-name">Pelican Restaurant</div><div class="place-note">Old Port. Spaghetti cooked tableside in a giant Parmesan wheel. Opens 7 AM — perfect first stop right off the tender!</div><div class="place-tip">💡 Opens 7 AM — ideal for first-tender breakfast!</div></div>
+        <div class="tip-box"><div class="tip-label">📋 Suggested Day Plan</div><p><strong>7 AM</strong> — First tender, breakfast at Pelican<br><strong>8 AM</strong> — Scooter to Armenistis Lighthouse<br><strong>10 AM</strong> — Windmills + Little Venice<br><strong>12 PM</strong> — Lunch at Kavos Taverna<br><strong>2–5 PM</strong> — Ornos Beach<br><strong>5:15 PM</strong> — Last tender back to ship</p></div>
+      </div>
+      <div>
+        <div class="col-title">💡 Tips & Logistics</div>
+        <div class="place"><div class="place-name">Scooter/ATV Rental</div><div class="place-note">Best way to see beyond town. ~€30–50/day. International license needed. Helmets are mandatory. The lighthouse road is rough — take it slowly.</div></div>
+        <div class="place"><div class="place-name">Crowds & Tender Timing</div><div class="place-note">August is absolute peak season. First tender at 7 AM is crucial. Last tender at 5:45 PM — allow 30+ min queue time in summer. Don't cut it close.</div></div>
+        <div class="place"><div class="place-name">Mykonos Pricing</div><div class="place-note">Greece's most expensive island. Budget €35–50/person for a nice lunch, €15–20 for a cocktail at Little Venice. Worth the splurge — but set expectations accordingly.</div></div>
+        <div class="place"><div class="place-name">The Winds</div><div class="place-note">Mykonos is reliably windy even in summer — bring a light layer for the lighthouse and early morning. The wind makes August here more pleasant than most Greek islands.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAP: mykonos -->
+  <div class="city-map-wrapper">
+    <div class="city-map-label">
+      <div class="section-eyebrow">📍 Destinations on the Map</div>
+      <div class="map-legend-row">
+        <span class="mleg" style="--mc:#e74c3c">● Sights &amp; Attractions</span>
+        <span class="mleg" style="--mc:#27ae60">● Restaurants</span>
+        <span class="mleg" style="--mc:#c9963f">● Cafés</span>
+        <span class="mleg" style="--mc:#2980b9">● Port / Arrival</span>
+      </div>
+    </div>
+    <div id="map_mykonos" class="city-map-frame"></div>
+  </div>
+</div>
+
+<!-- ══ THESSALONIKI ══ -->
+<div class="section" id="sec-thessaloniki">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">Day 6 · Aug 13 · 9 AM – 9 PM</div>
+      <h2 class="section-title">🏙️ <em>Thessaloniki</em></h2>
+      <p class="section-desc">Greece's most underrated city. Byzantine churches, Roman monuments, a magnificent waterfront, and arguably the best food scene in the country. 12 hours to feast and explore.</p>
+    </div>
+    <div class="photo-strip">
+      <div class="photo-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/White_Tower_%28Thessaloniki%29.jpg" alt="White Tower">
+        <div class="photo-cap">The White Tower</div>
+      </div>
+      <div class="photo-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Thessaloniki_beach_promenade.jpg" alt="Thessaloniki waterfront">
+        <div class="photo-cap">Thessaloniki Waterfront</div>
+      </div>
+      <div class="photo-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Thessaloniki_Aristotelous_Square_09.jpg" alt="Aristotelous Square">
+        <div class="photo-cap">Aristotelous Square</div>
+      </div>
+      <div class="photo-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Thessaloniki_Arch_of_Galerius_from_the_west.jpg" alt="Arch of Galerius">
+        <div class="photo-cap">Arch of Galerius (Kamara)</div>
+      </div>
+    </div>
+    <div class="places-grid">
+      <div>
+        <div class="col-title">🗿 Sites to See</div>
+        <div class="place"><div class="stars">★★★★☆ 4.7</div><div class="place-name">White Tower</div><div class="place-note">City's iconic landmark on the waterfront. Museum traces Thessaloniki's history across multiple floors. Panoramic top view — sea, city, and Mt. Olympus on clear days. €6 entry.</div></div>
+        <div class="place"><div class="stars">★★★★☆ 4.7</div><div class="place-name">Aristotelous Square</div><div class="place-note">Grand neoclassical square sweeping to the sea. The city's living room — have a coffee here and watch the world go by. Gorgeous at golden hour.</div></div>
+        <div class="place"><div class="stars">★★★★☆ 4.7</div><div class="place-name">Arch of Galerius (Kamara)</div><div class="place-note">4th-century Roman triumphal arch with intricate battle reliefs. Free to walk through. Part of a complex with the massive Rotunda — living ancient history in the middle of a modern city.</div></div>
+        <div class="place"><div class="stars">★★★★☆ 4.7</div><div class="place-name">Archaeological Museum</div><div class="place-note">Gold artifacts from Macedonian kings, stunning mosaics. Less crowded than Athens equivalents. Audio guides available. Plan 1.5–2 hours.</div></div>
+        <div class="place"><div class="place-name">Ano Poli (Upper City)</div><div class="place-note">Byzantine walls, traditional houses, and panoramic city views. 30-min uphill walk from the center — a rewarding detour with sweeping views.</div></div>
+      </div>
+      <div>
+        <div class="col-title">🍽️ Restaurants</div>
+        <div class="place"><div class="stars">★★★★★ 4.8</div><div class="place-name">Kanoula</div><div class="place-note">Rustic Mediterranean tavern. Best daily specials in town — stuffed onions, pulled beef, mushroom risotto. Cozy, warm staff, complimentary dessert.</div><div class="place-tip">💡 Book ahead for dinner. Opens 1 PM.</div></div>
+        <div class="place"><div class="stars">★★★★☆ 4.6</div><div class="place-name">The Rouga</div><div class="place-note">Charming alleyway location, excellent seafood, live traditional music some evenings. Many visitors call it the best meal of their entire Greek trip.</div></div>
+        <div class="place"><div class="stars">★★★★★ 4.8</div><div class="place-name">Stafylos Gi</div><div class="place-note">In front of Atatürk's house — great location. Grilled eggplants, octopus, halloumi, lamb. Incredibly generous portions with complimentary dessert.</div></div>
+        <div class="tip-box"><div class="tip-label">📋 Suggested Day Plan</div><p><strong>9 AM</strong> — White Tower, walk the promenade<br><strong>10:30 AM</strong> — Coffee at Aristotelous Square<br><strong>11:30 AM</strong> — Arch of Galerius + Rotunda<br><strong>1 PM</strong> — Lunch at Kanoula or The Rouga<br><strong>3–5 PM</strong> — Archaeological Museum<br><strong>5–7 PM</strong> — Ladadika district, aperitivo<br><strong>7:30 PM</strong> — Dinner, back to ship by 8:45 PM</p></div>
+      </div>
+      <div>
+        <div class="col-title">💡 Tips & Logistics</div>
+        <div class="place"><div class="place-name">Waterfront Walk</div><div class="place-note">The promenade is 3+ km and gorgeous. Flat along the water, hillier toward Ano Poli. Very walkable city with comfortable shoes.</div></div>
+        <div class="place"><div class="place-name">Ano Poli Option</div><div class="place-note">Byzantine walls and towers with panoramic views. 30-min uphill walk from the center — a great add-on for anyone who wants more to explore.</div></div>
+        <div class="place"><div class="place-name">The Food Culture</div><div class="place-note">Thessalonians are obsessed with food. Try bougatsa (custard pastry), koulouri (sesame rings), and Greek coffee from a traditional kafeneio. The food scene here rivals Athens.</div></div>
+        <div class="place"><div class="place-name">Evening Vibe</div><div class="place-note">Thessaloniki comes alive at night. The waterfront, Ladadika district, and Aristotelous Square are beautiful in the evening. You have until 9 PM — use every hour.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAP: thessaloniki -->
+  <div class="city-map-wrapper">
+    <div class="city-map-label">
+      <div class="section-eyebrow">📍 Destinations on the Map</div>
+      <div class="map-legend-row">
+        <span class="mleg" style="--mc:#e74c3c">● Sights &amp; Attractions</span>
+        <span class="mleg" style="--mc:#27ae60">● Restaurants</span>
+        <span class="mleg" style="--mc:#c9963f">● Cafés</span>
+        <span class="mleg" style="--mc:#2980b9">● Port / Arrival</span>
+      </div>
+    </div>
+    <div id="map_thessaloniki" class="city-map-frame"></div>
+  </div>
+</div>
+
+<!-- ══ TIPS & MAP ══ -->
+<div class="section" id="sec-tips">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">Essential Info</div>
+      <h2 class="section-title">Tips & <em>Interactive Map</em></h2>
+      <p class="section-desc">Your full cruise route on an interactive map — hover or click any pin for details and a link to that destination's guide. Plus everything you need for a smooth trip.</p>
+    </div>
+
+    <!-- SELF-CONTAINED SVG MAP -->
+    <div class="map-wrap">
+      <div class="map-tooltip" id="mapTooltip"></div>
+      <svg viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg" style="cursor:default;">
+        <!-- Ocean background -->
+        <defs>
+          <linearGradient id="oceanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#0d2137;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#162940;stop-opacity:1"/>
+          </linearGradient>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <rect width="900" height="520" fill="url(#oceanGrad)"/>
+
+        <!-- Grid lines (latitude/longitude feel) -->
+        <g stroke="rgba(255,255,255,0.03)" stroke-width="1">
+          <line x1="0" y1="130" x2="900" y2="130"/>
+          <line x1="0" y1="260" x2="900" y2="260"/>
+          <line x1="0" y1="390" x2="900" y2="390"/>
+          <line x1="150" y1="0" x2="150" y2="520"/>
+          <line x1="300" y1="0" x2="300" y2="520"/>
+          <line x1="450" y1="0" x2="450" y2="520"/>
+          <line x1="600" y1="0" x2="600" y2="520"/>
+          <line x1="750" y1="0" x2="750" y2="520"/>
+        </g>
+
+        <!-- Rough landmasses (simplified shapes for Greece/Turkey area) -->
+        <!-- Greek mainland -->
+        <path d="M180,60 L320,55 L360,90 L380,130 L350,160 L310,170 L280,200 L270,230 L240,240 L200,220 L180,190 L160,160 L155,120 Z" fill="rgba(42,80,70,0.35)" stroke="rgba(100,160,120,0.2)" stroke-width="1"/>
+        <!-- Peloponnese -->
+        <path d="M220,230 L280,225 L300,250 L290,290 L260,310 L230,300 L210,270 L215,245 Z" fill="rgba(42,80,70,0.3)" stroke="rgba(100,160,120,0.15)" stroke-width="1"/>
+        <!-- Turkey coast -->
+        <path d="M580,80 L780,70 L820,100 L830,150 L810,200 L780,220 L740,210 L700,190 L660,180 L620,160 L590,140 L570,110 Z" fill="rgba(90,70,40,0.3)" stroke="rgba(160,130,80,0.15)" stroke-width="1"/>
+        <!-- Crete (bottom) -->
+        <path d="M230,460 L380,450 L420,465 L400,480 L350,485 L280,482 L240,475 Z" fill="rgba(42,80,70,0.25)" stroke="rgba(100,160,120,0.1)" stroke-width="1"/>
+
+        <!-- CRUISE ROUTE LINE -->
+        <!-- Athens(235,195) → Santorini(280,360) → Rhodes(560,370) → Ephesus(630,240) → Mykonos(330,295) → Thessaloniki(280,100) → Athens(235,195) -->
+        <polyline
+          points="235,195 280,360 560,370 630,240 330,295 280,100 235,195"
+          fill="none"
+          stroke="rgba(201,150,63,0.5)"
+          stroke-width="2"
+          stroke-dasharray="8,6"
+          stroke-linecap="round"/>
+
+        <!-- Animated ship dot on route -->
+        <circle r="4" fill="rgba(201,150,63,0.9)" filter="url(#glow)">
+          <animateMotion dur="12s" repeatCount="indefinite" rotate="auto">
+            <mpath href="#routePath"/>
+          </animateMotion>
+        </circle>
+        <path id="routePath" d="M235,195 L280,360 L560,370 L630,240 L330,295 L280,100 L235,195" fill="none"/>
+
+        <!-- PINS -->
+        <!-- Athens -->
+        <g class="map-pin" data-city="athens" data-date="Aug 8 · Depart 5 PM" data-note="Acropolis, Ancient Agora, Monastiraki. Leave for Piraeus port by 3 PM." onclick="showSection('athens')" transform="translate(235,195)">
+          <circle class="outer" r="16" fill="rgba(201,150,63,0.15)" stroke="rgba(201,150,63,0.4)" stroke-width="1"/>
+          <circle r="8" fill="#c9963f" stroke="rgba(255,255,255,0.8)" stroke-width="1.5"/>
+          <text y="28" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="10" font-family="'Bebas Neue',sans-serif" letter-spacing="1">ATHENS</text>
+        </g>
+        <!-- Santorini -->
+        <g class="map-pin" data-city="santorini" data-date="Aug 9 · 7 AM – 10 PM (Tender)" data-note="Fira–Oia caldera hike, Akrotiri ruins, Oia Castle sunset." onclick="showSection('santorini')" transform="translate(280,360)">
+          <circle class="outer" r="16" fill="rgba(231,76,60,0.15)" stroke="rgba(231,76,60,0.4)" stroke-width="1"/>
+          <circle r="8" fill="#e74c3c" stroke="rgba(255,255,255,0.8)" stroke-width="1.5"/>
+          <text y="28" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="10" font-family="'Bebas Neue',sans-serif" letter-spacing="1">SANTORINI</text>
+        </g>
+        <!-- Rhodes -->
+        <g class="map-pin" data-city="rhodes" data-date="Aug 10 · 9 AM – 7 PM" data-note="Medieval Old City, Grand Master Palace, Lindos Acropolis." onclick="showSection('rhodes')" transform="translate(560,370)">
+          <circle class="outer" r="16" fill="rgba(142,68,173,0.15)" stroke="rgba(142,68,173,0.4)" stroke-width="1"/>
+          <circle r="8" fill="#8e44ad" stroke="rgba(255,255,255,0.8)" stroke-width="1.5"/>
+          <text y="28" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="10" font-family="'Bebas Neue',sans-serif" letter-spacing="1">RHODES</text>
+        </g>
+        <!-- Ephesus -->
+        <g class="map-pin" data-city="ephesus" data-date="Aug 11 · 8 AM – 8 PM · Turkey" data-note="Ephesus Ancient City, Temple of Artemis (7 Wonders!), Selçuk town." onclick="showSection('ephesus')" transform="translate(630,240)">
+          <circle class="outer" r="16" fill="rgba(39,174,96,0.15)" stroke="rgba(39,174,96,0.4)" stroke-width="1"/>
+          <circle r="8" fill="#27ae60" stroke="rgba(255,255,255,0.8)" stroke-width="1.5"/>
+          <text y="28" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="10" font-family="'Bebas Neue',sans-serif" letter-spacing="1">EPHESUS</text>
+        </g>
+        <!-- Mykonos -->
+        <g class="map-pin" data-city="mykonos" data-date="Aug 12 · 7 AM – 6 PM (Tender)" data-note="Windmills, Little Venice, Armenistis Lighthouse, Ornos Beach." onclick="showSection('mykonos')" transform="translate(330,295)">
+          <circle class="outer" r="16" fill="rgba(41,128,185,0.15)" stroke="rgba(41,128,185,0.4)" stroke-width="1"/>
+          <circle r="8" fill="#2980b9" stroke="rgba(255,255,255,0.8)" stroke-width="1.5"/>
+          <text y="-16" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="10" font-family="'Bebas Neue',sans-serif" letter-spacing="1">MYKONOS</text>
+        </g>
+        <!-- Thessaloniki -->
+        <g class="map-pin" data-city="thessaloniki" data-date="Aug 13 · 9 AM – 9 PM" data-note="White Tower, Arch of Galerius, Aristotelous Square, incredible food scene." onclick="showSection('thessaloniki')" transform="translate(280,100)">
+          <circle class="outer" r="16" fill="rgba(22,160,133,0.15)" stroke="rgba(22,160,133,0.4)" stroke-width="1"/>
+          <circle r="8" fill="#16a085" stroke="rgba(255,255,255,0.8)" stroke-width="1.5"/>
+          <text y="28" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="10" font-family="'Bebas Neue',sans-serif" letter-spacing="1">THESSALONIKI</text>
+        </g>
+
+        <!-- Labels for seas -->
+        <text x="450" y="200" text-anchor="middle" fill="rgba(135,206,235,0.15)" font-size="22" font-family="'Cormorant Garamond',serif" font-style="italic">Aegean Sea</text>
+        <text x="700" y="320" text-anchor="middle" fill="rgba(135,206,235,0.1)" font-size="16" font-family="'Cormorant Garamond',serif" font-style="italic">Mediterranean</text>
+
+        <!-- Compass rose -->
+        <g transform="translate(840,460)" fill="rgba(255,255,255,0.2)" font-family="'Bebas Neue',sans-serif" font-size="9">
+          <text x="-4" y="-16" text-anchor="middle">N</text>
+          <line x1="0" y1="-12" x2="0" y2="12" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+          <line x1="-12" y1="0" x2="12" y2="0" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+          <circle r="3" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="map-legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#c9963f"></div>Athens (Pre-cruise & Return)</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#e74c3c"></div>Santorini</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#8e44ad"></div>Rhodes</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#27ae60"></div>Ephesus (Turkey)</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#2980b9"></div>Mykonos</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#16a085"></div>Thessaloniki</div>
+      <div class="legend-item" style="margin-left:auto;font-style:italic;color:rgba(201,150,63,0.6);font-size:11px;">Click any pin to view the guide for that destination</div>
+    </div>
+
+    <!-- TIPS -->
+    <div class="section-header">
+      <div class="section-eyebrow">Before You Go</div>
+      <h3 class="section-title" style="font-size:clamp(26px,4vw,42px);">Essential <em>Tips</em></h3>
+    </div>
+    <div class="tips-grid">
+      <div class="tip-card"><div class="tip-icon">☀️</div><div class="tip-title">August Heat</div><div class="tip-body">Greece in August averages 32–38°C. Always start outdoor sightseeing by 8 AM. Carry 2L water per person. Sun hats and light breathable clothing are non-negotiable.</div></div>
+      <div class="tip-card"><div class="tip-icon">🎫</div><div class="tip-title">Book Ahead Now</div><div class="tip-body">Book Acropolis tickets online — they sell out in summer. Reserve dinner at Tholoto (Santorini) and Kanoula (Thessaloniki) weeks in advance. Ephesus tickets online too.</div></div>
+      <div class="tip-card"><div class="tip-icon">👟</div><div class="tip-title">Footwear Matters</div><div class="tip-body">Every site involves uneven ancient stones and marble. Closed-toe, non-slip shoes for all archaeological sites. Sandals only at the beach. Your feet will thank you by Day 3.</div></div>
+      <div class="tip-card"><div class="tip-icon">⏰</div><div class="tip-title">Tender Ports</div><div class="tip-body">Santorini and Mykonos are tender ports — a small boat to shore. Get early tender tickets each morning. Allow 45+ min buffer before the last tender back to ship.</div></div>
+      <div class="tip-card"><div class="tip-icon">💳</div><div class="tip-title">Cash & Cards</div><div class="tip-body">Greece is mostly card-friendly. Turkey (Ephesus): bring Lira or USD for small vendors. Always carry €20–50 cash for taxis, tips, and shops that don't take cards.</div></div>
+      <div class="tip-card"><div class="tip-icon">🚕</div><div class="tip-title">Getting Around</div><div class="tip-body">Taxis are affordable (€10–30 most rides). Beat app works in Athens. Rhodes and Thessaloniki have good local buses. Scooter/ATV rentals on the islands give great flexibility.</div></div>
+      <div class="tip-card"><div class="tip-icon">📸</div><div class="tip-title">Best Photo Times</div><div class="tip-body">Golden hour is magic everywhere. Oia sunset is iconic. Early morning at the Acropolis, Ephesus, and Mykonos windmills gives you soft light and zero crowds.</div></div>
+      <div class="tip-card"><div class="tip-icon">🍋</div><div class="tip-title">Eating Like a Local</div><div class="tip-body">Lunch is the main Greek meal (1–3 PM). Dinner starts late — 9 PM is early. Order the "house wine" (χύμα κρασί). Try the freddo espresso — the national cold coffee.</div></div>
+      <div class="tip-card"><div class="tip-icon">🚢</div><div class="tip-title">Airbnb → Piraeus Port</div><div class="tip-body">Piraeus is 40 min by Metro (Green Line, direct) or ~€30 by taxi from central Athens. Leave by 2:30 PM for a comfortable 5 PM departure. Don't cut it close in August traffic.</div></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>"Not all those who wander are lost — but all who wander Greece eat very well."</p>
+  <div style="margin-top:10px;font-size:11px;color:rgba(255,255,255,0.18);font-family:'DM Sans',sans-serif;">Tammaro Family Greece Trip · August 2026 · 🇬🇷 Καλό ταξίδι — Safe travels!</div>
+</footer>
+
+<script>
+const CITY_MAPS = {
+  athens: { lat:37.975, lng:23.728, zoom:14, pins:[
+    [37.9715,23.7257,'#e74c3c','Acropolis & Parthenon','Sight','The crown jewel of ancient Greece. Book tickets online — €30/person.'],
+    [37.9749,23.7221,'#e74c3c','Ancient Agora','Sight','Temple of Hephaestus + museum. Included in Acropolis combo ticket.'],
+    [37.9693,23.7331,'#e74c3c','Temple of Olympian Zeus','Sight','Massive Corinthian columns near Hadrian\'s Arch.'],
+    [37.9766,23.7257,'#e74c3c','Monastiraki Square','Sight','Old neighborhood below the Acropolis — great for wandering.'],
+    [37.989,23.7328,'#e74c3c','National Archaeological Museum','Sight','Mask of Agamemnon, Artemision Bronze. World class.'],
+    [37.9783,23.7239,'#27ae60','Bandiera Restaurant','Restaurant','★★★★★ Legendary moussaka. Closed Mondays. Opens 1 PM.'],
+    [37.9768,23.723,'#27ae60','A Little Taste of Home','Restaurant','★★★★★ Slow-cooked lamb and beef brisket. Closed Tuesdays.'],
+    [37.9802,23.7256,'#27ae60','Karamanlidika','Restaurant','★★★★★ Greek-Anatolian deli-restaurant. Open from 9 AM.'],
+    [37.9846,23.7214,'#27ae60','MIRONI Restaurant','Restaurant','★★★★★ Authentic Greek kitchen, live music some evenings.'],
+    [37.9861,23.7324,'#27ae60','Antitamos','Restaurant','★★★★★ No reservations, worth the wait. Massive portions.'],
+    [37.9668,23.7311,'#c9963f','Coffee Joint','Café','★★★★★ Open 6 AM. Best omelets in Athens. Closed Sundays.'],
+    [37.979,23.7241,'#c9963f','Myller Coffee Shop','Café','★★★★★ Specialty coffee in Monastiraki. Exceptional cappuccino.'],
+    [37.9794,23.7376,'#c9963f','Samba Coffee Roasters','Café','★★★★★ One of Athens\' best roasters. Freddo flat white is outstanding.'],
+    [37.9682,23.7271,'#c9963f','Little Tree Books & Coffee','Café','★★★★☆ Bookshop café below the Acropolis. Closed Mondays.']
+  ]},
+  santorini: { lat:36.41, lng:25.42, zoom:11, pins:[
+    [36.4167,25.431,'#e74c3c','Fira — Caldera Hike Start','Sight','Start the Fira-Oia hike here at 7 AM right off the tender.'],
+    [36.462,25.376,'#e74c3c','Oia Village — Hike End & Sunset','Sight','End of the caldera hike. Castle of Oia is the iconic sunset spot.'],
+    [36.3518,25.4034,'#e74c3c','Akrotiri Archaeological Site','Sight','★★★★☆ Minoan ruins — the "Pompeii of Santorini". Closed Tuesdays.'],
+    [36.3578,25.357,'#e74c3c','Akrotiri Lighthouse','Sight','★★★★☆ Southern tip. Stunning sea and cliff views.'],
+    [36.3758,25.4244,'#e74c3c','Heart of Santorini','Sight','★★★★☆ Short hike to a heart-shaped rock formation with caldera views.'],
+    [36.422,25.432,'#27ae60','Tholoto Brunch & Restaurant','Restaurant','★★★★★ 5.0 rating. Best in Santorini. Book weeks ahead for August!'],
+    [36.388,25.4573,'#27ae60','Metaxi Mas','Restaurant','★★★★☆ Exo Gonia village. Best dolmades, sea views, free raki on arrival.'],
+    [36.4182,25.4318,'#27ae60','Parea Tavern','Restaurant','★★★★☆ Rooftop terrace in Fira. Outstanding moussaka.']
+  ]},
+  rhodes: { lat:36.27, lng:28.15, zoom:10, pins:[
+    [36.4447,28.2275,'#e74c3c','Medieval City of Rhodes','Sight','★★★★★ UNESCO World Heritage Site. Free to wander — plan 2–3 hours.'],
+    [36.4454,28.2242,'#e74c3c','Palace of the Grand Master','Sight','★★★★☆ Enormous and beautifully preserved. €20 entry.'],
+    [36.0915,28.0885,'#e74c3c','Lindos Acropolis','Sight','★★★★☆ Doric acropolis on a cliff. Steep climb, magnificent views. €20.'],
+    [36.086,28.093,'#e74c3c','St. Paul\'s Bay, Lindos','Sight','Crystal clear swimming below the Lindos Acropolis.'],
+    [36.3358,27.9214,'#e74c3c','Archaeological Site of Kamiros','Sight','★★★★☆ Entire ancient city on a hillside. €10 entry, free parking.'],
+    [36.4423,28.2322,'#27ae60','at Thomas Restaurant','Restaurant','★★★★★ Hidden in Medieval City. Eggplant salad, shrimp Thomas. Opens noon.'],
+    [36.4419,28.2278,'#27ae60','The Ritualist','Restaurant','★★★★★ Creative cuisine under a tree in Old Town courtyard.'],
+    [36.4442,28.2235,'#27ae60','Mama Sofia','Restaurant','★★★★☆ Beloved Old Town institution. Great seafood platter.']
+  ]},
+  ephesus: { lat:37.91, lng:27.31, zoom:12, pins:[
+    [37.9409,27.3415,'#e74c3c','Ephesus Ancient City','Sight','★★★★★ Library of Celsus, Great Theatre, marble streets. Arrive 8 AM — ~€40/person.'],
+    [37.9393,27.3404,'#e74c3c','Terrace Houses (Extra Entry)','Sight','2,000 year-old mosaics still intact. ~€15 extra. Air-conditioned. Do not skip!'],
+    [37.9496,27.3639,'#e74c3c','Temple of Artemis','Sight','★★★★☆ One of the Seven Wonders of the World. Free entry. 5 min from site.'],
+    [37.9514,27.3686,'#e74c3c','Ephesus Museum, Selcuk','Sight','Holds the actual artifacts from the site. Worth 45 min.'],
+    [37.8635,27.248,'#e74c3c','Kusadasi Castle','Sight','★★★★☆ 10-min walk from port. Ottoman castle on small island. €10 entry.'],
+    [37.8569,27.2558,'#2980b9','Kusadasi Cruise Port','Port','Your arrival point. Taxis to Ephesus ~$15-20 USD each way.'],
+    [37.95,27.37,'#27ae60','Selcuk Town — Lunch','Restaurant','Authentic Turkish lunch — gözleme, kebab, pide. Far better than port restaurants.']
+  ]},
+  mykonos: { lat:37.447, lng:25.329, zoom:13, pins:[
+    [37.4446,25.3259,'#e74c3c','Mykonos Windmills','Sight','★★★★☆ 16th-century Venetian mills. Free. Best at 7 AM or sunset.'],
+    [37.446,25.3265,'#e74c3c','Little Venice','Sight','Old houses built over the sea. Arrive early for best light.'],
+    [37.4897,25.3146,'#e74c3c','Armenistis Lighthouse','Sight','★★★★☆ 15 min drive. Incredible panoramic views. Almost nobody early morning.'],
+    [37.4226,25.3233,'#e74c3c','Ornos Beach','Sight','★★★★☆ Crystal clear water, sandy bottom. Sunbeds from €20/pair.'],
+    [37.4475,25.3288,'#2980b9','Old Port — Tender Landing','Port','Where the tender drops you. Pelican Restaurant is steps away — opens 7 AM!'],
+    [37.4495,25.3298,'#27ae60','Kavos Taverna','Restaurant','★★★★★ Best seafood in Mykonos. Whole sea bass, octopus. Opens 10 AM.'],
+    [37.4476,25.3291,'#27ae60','Pelican Restaurant','Restaurant','★★★★★ Opens 7 AM. Spaghetti in a giant Parmesan wheel.'],
+    [37.4439,25.3274,'#27ae60','La Petite Taverne Windmills','Restaurant','★★★★★ Right by the windmills. Stunning moussaka and lemon lamb.']
+  ]},
+  thessaloniki: { lat:40.632, lng:22.945, zoom:14, pins:[
+    [40.6264,22.9484,'#e74c3c','White Tower','Sight','★★★★☆ City landmark on waterfront. Mt. Olympus visible on clear days. €6.'],
+    [40.6323,22.9408,'#e74c3c','Aristotelous Square','Sight','★★★★☆ Grand neoclassical square to the sea. Coffee and people-watching.'],
+    [40.6322,22.9518,'#e74c3c','Arch of Galerius (Kamara)','Sight','★★★★☆ 4th-century Roman triumphal arch. Free to walk through.'],
+    [40.6332,22.9516,'#e74c3c','Rotunda','Sight','Massive Roman mausoleum — part of the Galerius complex.'],
+    [40.6255,22.9537,'#e74c3c','Archaeological Museum','Sight','★★★★☆ Gold Macedonian artifacts. Less crowded than Athens equivalents.'],
+    [40.645,22.954,'#e74c3c','Ano Poli (Upper City)','Sight','Byzantine walls with panoramic views. 30-min uphill walk from center.'],
+    [40.639,22.9452,'#27ae60','Kanoula Restaurant','Restaurant','★★★★★ Best daily specials in town. Book ahead for dinner.'],
+    [40.6365,22.9405,'#27ae60','The Rouga','Restaurant','★★★★☆ Alleyway setting, excellent seafood, live traditional music.'],
+    [40.6357,22.9545,'#27ae60','Stafylos Gi','Restaurant','★★★★★ In front of Atatürk\'s house. Lamb, octopus, halloumi.']
+  ]},
+};
+
+const mapInstances = {};
+function initCityMap(city) {
+  if (mapInstances[city]) {
+    mapInstances[city].invalidateSize();
+    return;
+  }
+  const data = CITY_MAPS[city];
+  if (!data) return;
+  const map = L.map('map_' + city, {
+    center: [data.lat, data.lng],
+    zoom: data.zoom,
+    scrollWheelZoom: false
+  });
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors',
+    maxZoom: 19
+  }).addTo(map);
+  data.pins.forEach(function(p) {
+    var icon = L.divIcon({
+      className: '',
+      html: '<div style="width:13px;height:13px;background:'+p[2]+';border:2px solid rgba(255,255,255,0.9);border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,0.5);cursor:pointer;"></div>',
+      iconSize:[13,13], iconAnchor:[6,6], popupAnchor:[0,-10]
+    });
+    L.marker([p[0],p[1]],{icon:icon}).addTo(map)
+      .bindPopup('<div class="pop-title">'+p[3]+'</div><div class="pop-type" style="color:'+p[2]+'">'+p[4]+'</div><div class="pop-note">'+p[5]+'</div>');
+  });
+  mapInstances[city] = map;
+}
+
+
+  // ── Navigation ──
+  function showSection(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('sec-' + id).classList.add('active');
+    const order = ['overview','athens','santorini','rhodes','ephesus','mykonos','thessaloniki','tips'];
+    const idx = order.indexOf(id);
+    if (idx > -1) document.querySelectorAll('.nav-tab')[idx].classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const cityMaps = ['athens','santorini','rhodes','ephesus','mykonos','thessaloniki'];
+    if (cityMaps.includes(id)) {
+      setTimeout(function(){ initCityMap(id); }, 50);
+    }
+  }
+
+  // ── SVG Map Tooltips ──
+  const tooltip = document.getElementById('mapTooltip');
+  const cityNames = { athens:'Athens', santorini:'Santorini', rhodes:'Rhodes', ephesus:'Ephesus (Kusadasi)', mykonos:'Mykonos', thessaloniki:'Thessaloniki' };
+
+  document.querySelectorAll('.map-pin').forEach(pin => {
+    pin.addEventListener('mouseenter', function(e) {
+      const city = this.dataset.city;
+      tooltip.innerHTML = `<strong>${cityNames[city]}</strong><em>${this.dataset.date}</em><span>${this.dataset.note}</span><div class="map-btn">View Guide →</div>`;
+      tooltip.classList.add('show');
+    });
+    pin.addEventListener('mousemove', function(e) {
+      const wrap = document.querySelector('.map-wrap');
+      const rect = wrap.getBoundingClientRect();
+      let x = e.clientX - rect.left + 12;
+      let y = e.clientY - rect.top - 20;
+      if (x + 250 > rect.width) x = e.clientX - rect.left - 260;
+      if (y < 0) y = 10;
+      tooltip.style.left = x + 'px';
+      tooltip.style.top = y + 'px';
+    });
+    pin.addEventListener('mouseleave', function() {
+      tooltip.classList.remove('show');
+    });
+  });
+</script>
+</body>
+</html>
