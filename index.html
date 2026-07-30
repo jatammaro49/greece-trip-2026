@@ -107,6 +107,47 @@ body { font-family:'DM Sans',sans-serif; background:#162940; color:var(--white);
 .ship-line { flex:1; height:1px; background:linear-gradient(90deg,var(--gold),rgba(201,150,63,0.15)); min-width:18px; flex-shrink:0; }
 .ship-label { font-size:10px; color:rgba(255,255,255,0.38); white-space:nowrap; }
 
+/* DAY SCHEDULE */
+.day-schedule { background:linear-gradient(135deg,rgba(201,150,63,0.08),rgba(135,206,235,0.03)); border:1px solid rgba(201,150,63,0.28); border-radius:14px; padding:20px 22px 6px; margin-bottom:34px; }
+.day-schedule-head { display:flex; justify-content:space-between; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:18px; }
+.day-schedule-title { font-family:'Bebas Neue',sans-serif; font-size:12px; letter-spacing:3.5px; color:var(--gold); }
+.day-schedule-window { font-size:11px; color:rgba(255,255,255,0.48); letter-spacing:0.3px; }
+.schedule-track { display:flex; flex-direction:column; }
+.schedule-stop { display:flex; align-items:flex-start; gap:15px; position:relative; padding-bottom:26px; }
+.schedule-stop:last-child { padding-bottom:14px; }
+.schedule-stop::before { content:''; position:absolute; left:16px; top:34px; bottom:0; width:1px; background:linear-gradient(180deg,rgba(201,150,63,0.5),rgba(201,150,63,0.1)); }
+.schedule-stop:last-child::before { display:none; }
+.schedule-stop-icon { flex-shrink:0; width:34px; height:34px; border-radius:50%; background:rgba(201,150,63,0.14); border:1.5px solid rgba(201,150,63,0.65); display:flex; align-items:center; justify-content:center; font-size:15px; }
+.schedule-stop.boat .schedule-stop-icon { background:rgba(41,128,185,0.2); border-color:#2980b9; }
+.schedule-stop-text { padding-top:6px; }
+.schedule-stop-time { font-family:'Bebas Neue',sans-serif; font-size:14px; letter-spacing:1px; color:var(--white); }
+.schedule-stop.boat .schedule-stop-time { color:var(--sky); }
+.schedule-stop-label { font-size:12.5px; color:rgba(255,255,255,0.6); line-height:1.4; margin-top:2px; }
+
+/* BOOKED TOUR CARD */
+.tour-card { background:rgba(41,128,185,0.07); border:1px solid rgba(41,128,185,0.28); border-radius:14px; padding:20px 22px; margin-bottom:34px; }
+.tour-card-head { display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; align-items:baseline; margin-bottom:6px; }
+.tour-card-eyebrow { font-family:'Bebas Neue',sans-serif; font-size:11px; letter-spacing:3.5px; color:#5fb3e0; }
+.tour-card-meta { font-size:11px; color:rgba(255,255,255,0.45); }
+.tour-card-title { font-family:'Cormorant Garamond',serif; font-size:21px; font-weight:300; color:var(--white); margin-bottom:8px; }
+.tour-card-desc { font-size:12.5px; color:rgba(255,255,255,0.55); line-height:1.7; margin-bottom:12px; }
+.tour-card-confirm { font-size:11.5px; color:#6fcf97; letter-spacing:0.2px; margin-bottom:12px; }
+.tour-card-stops { display:flex; flex-wrap:wrap; gap:7px; margin-bottom:12px; }
+.tour-stop-chip { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.12); border-radius:20px; padding:5px 13px; font-size:11px; color:rgba(255,255,255,0.72); white-space:nowrap; }
+.tour-stop-chip b { color:var(--sky); font-weight:500; }
+.tour-card-link { display:inline-block; font-size:11px; letter-spacing:2.5px; font-family:'Bebas Neue',sans-serif; color:var(--gold); text-decoration:none; border-bottom:1px solid rgba(201,150,63,0.45); padding-bottom:2px; }
+.tour-card-link:hover { color:#e0b567; border-color:#e0b567; }
+
+/* DRESS & CLOTHING */
+.dress-box { background:linear-gradient(135deg,rgba(135,206,235,0.06),rgba(201,150,63,0.04)); border:1px solid rgba(135,206,235,0.22); border-radius:12px; padding:20px 22px 18px; margin-top:30px; }
+.dress-box-title { font-family:'Bebas Neue',sans-serif; font-size:11px; letter-spacing:4px; color:var(--sky); margin-bottom:14px; display:flex; align-items:center; gap:8px; }
+.dress-box-title::after { content:''; flex:1; height:1px; background:rgba(135,206,235,0.18); }
+.dress-items { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:12px 20px; }
+.dress-item { display:flex; gap:10px; align-items:flex-start; }
+.dress-item-icon { font-size:15px; flex-shrink:0; margin-top:1px; }
+.dress-item-text { font-size:12px; color:rgba(255,255,255,0.58); line-height:1.65; }
+.dress-item-text b { color:var(--white); font-weight:500; }
+
 /* TIPS */
 .tips-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:13px; }
 .tip-card { background:var(--card-bg); border:1px solid var(--card-border); border-radius:12px; padding:19px; }
@@ -269,6 +310,37 @@ footer p { font-family:'Cormorant Garamond',serif; font-size:17px; font-style:it
       <h2 class="section-title">🏛️ <em>Athens</em></h2>
       <p class="section-desc">Morning and early afternoon before boarding. Prioritize the Acropolis at 8 AM opening, then wander the Ancient Agora and Monastiraki. Leave for Piraeus port by 3 PM — 40 min by Metro Green Line or ~€30 taxi.</p>
     </div>
+
+    <div class="day-schedule">
+      <div class="day-schedule-head">
+        <div class="day-schedule-title">📋 Today's Schedule</div>
+        <div class="day-schedule-window">Boarding · Ship departs Piraeus 5:00 PM</div>
+      </div>
+      <div class="schedule-track">
+        <div class="schedule-stop"><div class="schedule-stop-icon">🏛</div><div class="schedule-stop-text"><div class="schedule-stop-time">9:00 AM – 12:30 PM</div><div class="schedule-stop-label">Booked tour — Acropolis, Parthenon & Acropolis Museum (approx. 3.5 hrs)</div></div></div>
+        <div class="schedule-stop boat"><div class="schedule-stop-icon">🚢</div><div class="schedule-stop-text"><div class="schedule-stop-time">5:00 PM</div><div class="schedule-stop-label">Board ship — departs Piraeus</div></div></div>
+      </div>
+    </div>
+
+    <div class="tour-card">
+      <div class="tour-card-head">
+        <div class="tour-card-eyebrow">🎟 Your Booked Tour</div>
+        <div class="tour-card-meta">3–4 hrs · Athenian Tours · English guide</div>
+      </div>
+      <div class="tour-card-title">Acropolis, Parthenon & Acropolis Museum Guided Tour</div>
+      <p class="tour-card-confirm">✅ Reserved — Fri, Aug 7, 2026 · 9:00 AM · 7 Adults · Booked by Alisa T · Ref #1415139275</p>
+      <p class="tour-card-desc">A guided half-day covering both the hilltop site and the museum below it. Meet at the Athenian Tours office (Mitseon 2, near Acropolis Metro — arrive 20 min early); ends at the Acropolis Museum exit. Guide walks you through the ruins first, then the museum for context on daily life, art, and spirituality in ancient Athens.</p>
+      <div class="tour-card-stops">
+        <span class="tour-stop-chip"><b>Acropolis</b> · 25 min</span>
+        <span class="tour-stop-chip"><b>Acropolis Museum</b> · 2 hrs</span>
+        <span class="tour-stop-chip"><b>Parthenon</b> · 30 min</span>
+        <span class="tour-stop-chip"><b>Propylaea</b> · 15 min</span>
+        <span class="tour-stop-chip"><b>Erechtheion</b> · 20 min</span>
+        <span class="tour-stop-chip">pass-by: Theatre of Dionysus, Herod Atticus Odeon, Temple of Athena Nike</span>
+      </div>
+      <a class="tour-card-link" href="https://www.viator.com/tours/Athens/Acropolis-and-the-Acropolis-Museum/d496-101933P1" target="_blank" rel="noopener">View Tour on Viator →</a>
+    </div>
+
     <div class="photo-strip">
       <div class="photo-item">
         <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/The_Parthenon_in_Athens.jpg" alt="Acropolis Athens">
@@ -313,6 +385,16 @@ footer p { font-family:'Cormorant Garamond',serif; font-size:17px; font-style:it
         <div class="tip-box"><div class="tip-label">💡 Athens Tips</div><p>Start at 8 AM at the Acropolis before the August heat peaks (35°C+). Wear sun hats and carry water. After the Agora, enjoy Little Tree, then lunch at Bandiera or Karamanlidika. Leave for Piraeus Metro (Green Line, direct) by 3 PM.</p></div>
       </div>
     </div>
+
+    <div class="dress-box">
+      <div class="dress-box-title">👕 What to Wear</div>
+      <div class="dress-items">
+        <div class="dress-item"><div class="dress-item-icon">👟</div><div class="dress-item-text"><b>Closed-toe walking shoes with grip</b> — the Acropolis marble is polished smooth and genuinely slippery, even dry. Skip sandals.</div></div>
+        <div class="dress-item"><div class="dress-item-icon">☀️</div><div class="dress-item-text"><b>Sun hat & sunglasses</b> — no shade on the hill and no cafés on site, so bring your own water bottle too.</div></div>
+        <div class="dress-item"><div class="dress-item-icon">🌬️</div><div class="dress-item-text"><b>Lightweight, breathable, light-colored clothing</b> — you'll be walking steadily from 9 AM through the museum in August heat.</div></div>
+        <div class="dress-item"><div class="dress-item-icon">🧳</div><div class="dress-item-text"><b>A boarding-ready outfit</b> — you'll go straight from sightseeing to the ship, so keep it comfortable for travel with a small daypack.</div></div>
+      </div>
+    </div>
   </div>
 
   <!-- MAP: athens -->
@@ -338,6 +420,37 @@ footer p { font-family:'Cormorant Garamond',serif; font-size:17px; font-style:it
       <h2 class="section-title">🌋 <em>Santorini</em></h2>
       <p class="section-desc">You have 15 full hours — the most of any port. The iconic Fira–Oia caldera hike is one of the great walks in Europe. Step off the tender at 7 AM and head straight to the trailhead.</p>
     </div>
+
+    <div class="day-schedule">
+      <div class="day-schedule-head">
+        <div class="day-schedule-title">📋 Today's Schedule</div>
+        <div class="day-schedule-window">Tender Port · 7:00 AM – 10:00 PM · Last tender 9:30 PM</div>
+      </div>
+      <div class="schedule-track">
+        <div class="schedule-stop boat"><div class="schedule-stop-icon">⛴</div><div class="schedule-stop-text"><div class="schedule-stop-time">7:00 AM</div><div class="schedule-stop-label">First tender — off ship at Fira</div></div></div>
+        <div class="schedule-stop"><div class="schedule-stop-icon">🌋</div><div class="schedule-stop-text"><div class="schedule-stop-time">10:00 AM – 2:30 PM</div><div class="schedule-stop-label">Booked tour — Private Santorini: Caldera, Oia, Red & Black Beaches (approx. 3–6 hrs, flexible)</div></div></div>
+        <div class="schedule-stop boat"><div class="schedule-stop-icon">⛴</div><div class="schedule-stop-text"><div class="schedule-stop-time">9:30 PM</div><div class="schedule-stop-label">Last tender — ship departs 10:00 PM</div></div></div>
+      </div>
+    </div>
+
+    <div class="tour-card">
+      <div class="tour-card-head">
+        <div class="tour-card-eyebrow">🎟 Your Booked Tour</div>
+        <div class="tour-card-meta">3–6 hrs (flexible) · MD Group Transfers & Tours · Private</div>
+      </div>
+      <div class="tour-card-title">Private Santorini Tour — Caldera, Oia, Red & Black Beaches</div>
+      <p class="tour-card-confirm">✅ Reserved — Sun, Aug 9, 2026 · 10:00 AM · 9 Adults · Booked by Alisa T · Ref #1415796913</p>
+      <p class="tour-card-desc">A private driver/guide with an air-conditioned vehicle, timed to your ship's schedule — pickup right at the cable car exit in Fira. Covers Oia's blue-domed churches, traditional villages, the volcanic Red and Black Beaches, and panoramic caldera viewpoints, with an optional winery stop for local volcanic wine tastings. Flexible pace — let the driver know what matters most to your group.</p>
+      <div class="tour-card-stops">
+        <span class="tour-stop-chip"><b>Oia</b> · blue domes & village</span>
+        <span class="tour-stop-chip"><b>Red Beach</b></span>
+        <span class="tour-stop-chip"><b>Black Beach</b></span>
+        <span class="tour-stop-chip">Panoramic caldera viewpoints</span>
+        <span class="tour-stop-chip">Optional: winery & wine tasting</span>
+      </div>
+      <a class="tour-card-link" href="https://www.viator.com/tours/Santorini/Caldera-Views-Oia-Red-and-Black-Beaches-Wine-Tasting-Optional/d959-5576372P1" target="_blank" rel="noopener">View Tour on Viator →</a>
+    </div>
+
     <div class="photo-strip">
       <div class="photo-item">
         <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Oia_Santorini_Greece.jpg" alt="Oia Santorini">
@@ -380,6 +493,16 @@ footer p { font-family:'Cormorant Garamond',serif; font-size:17px; font-style:it
         <div class="place"><div class="place-name">Getting Around</div><div class="place-note">KTEL buses are cheap and reliable. Taxis are expensive — share at taxi stands. ATV rentals popular but risky on narrow roads. Oia is very walkable once you're there.</div></div>
       </div>
     </div>
+
+    <div class="dress-box">
+      <div class="dress-box-title">👕 What to Wear</div>
+      <div class="dress-items">
+        <div class="dress-item"><div class="dress-item-icon">🥾</div><div class="dress-item-text"><b>Real hiking shoes or trainers — not sandals.</b> The Fira–Oia caldera trail is 10 km of mixed paved and rocky terrain.</div></div>
+        <div class="dress-item"><div class="dress-item-icon">🩱</div><div class="dress-item-text"><b>Swimsuit + quick-dry towel</b> — pack it for the lighthouse swim stop and any beach time after the hike.</div></div>
+        <div class="dress-item"><div class="dress-item-icon">🧢</div><div class="dress-item-text"><b>Moisture-wicking layers, hat, sunglasses</b> — you're exposed on a volcanic ridge with no shade; bring electrolytes, not just water.</div></div>
+        <div class="dress-item"><div class="dress-item-icon">🌅</div><div class="dress-item-text"><b>A light dress or outfit to change into for Oia</b> — nice for sunset photos at the Castle after the hike, if you want to freshen up.</div></div>
+      </div>
+    </div>
   </div>
 
   <!-- MAP: santorini -->
@@ -405,6 +528,36 @@ footer p { font-family:'Cormorant Garamond',serif; font-size:17px; font-style:it
       <h2 class="section-title">⚔️ <em>Rhodes</em></h2>
       <p class="section-desc">10 hours in one of the world's most magnificent medieval walled cities — plus the option to venture south to the spectacular Lindos Acropolis. The island has something for everyone.</p>
     </div>
+
+    <div class="day-schedule">
+      <div class="day-schedule-head">
+        <div class="day-schedule-title">📋 Today's Schedule</div>
+        <div class="day-schedule-window">Docked Port · 9:00 AM – 7:00 PM</div>
+      </div>
+      <div class="schedule-track">
+        <div class="schedule-stop boat"><div class="schedule-stop-icon">🚢</div><div class="schedule-stop-text"><div class="schedule-stop-time">9:00 AM</div><div class="schedule-stop-label">Off ship — pickup at pier</div></div></div>
+        <div class="schedule-stop"><div class="schedule-stop-icon">🏰</div><div class="schedule-stop-text"><div class="schedule-stop-time">10:00 AM – 4:00 PM</div><div class="schedule-stop-label">Booked tour — Rhodes Deluxe: Lindos, Old Town & Ceramics (approx. 6 hrs)</div></div></div>
+        <div class="schedule-stop boat"><div class="schedule-stop-icon">🚢</div><div class="schedule-stop-text"><div class="schedule-stop-time">7:00 PM</div><div class="schedule-stop-label">All aboard, ship departs</div></div></div>
+      </div>
+    </div>
+
+    <div class="tour-card">
+      <div class="tour-card-head">
+        <div class="tour-card-eyebrow">🎟 Your Booked Tour</div>
+        <div class="tour-card-meta">6 hrs · EU Tours & Travel · Pier pickup</div>
+      </div>
+      <div class="tour-card-title">Rhodes Deluxe Tour — Lindos, Old Town & Ceramics</div>
+      <p class="tour-card-confirm">✅ Reserved — Mon, Aug 10, 2026 · 10:00 AM · 7 Adults · Booked by Alisa T · Ref #1414889179</p>
+      <p class="tour-card-desc">Guided coach tour picking up right at the pier inside the cruise terminal. Combines Rhodes Old Town, the hilltop village of Lindos (Acropolis climb ~300 steps, optional €20 entry), and a stop at a family-run ceramics workshop with olive oil & honey tasting. Reviewers note it's a larger group tour (20–40+ people) — free time built in at both Lindos and Old Town to explore or eat on your own.</p>
+      <div class="tour-card-stops">
+        <span class="tour-stop-chip"><b>Old Town of Rhodes</b> · 1 hr</span>
+        <span class="tour-stop-chip"><b>Lindos</b> · 2 hrs</span>
+        <span class="tour-stop-chip"><b>Savvas Ceramics</b> · 30 min</span>
+        <span class="tour-stop-chip"><b>Rhodes free time</b> · 1 hr</span>
+      </div>
+      <a class="tour-card-link" href="https://www.viator.com/tours/Rhodes/Rhodes-Deluxe-Tour-including-Lindos-Old-Town-Wine-Tasting/d4272-383449P14" target="_blank" rel="noopener">View Tour on Viator →</a>
+    </div>
+
     <div class="photo-strip">
       <div class="photo-item">
         <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Rhodes_Old_Town_-_panoramio.jpg" alt="Rhodes Old Town">
@@ -445,6 +598,16 @@ footer p { font-family:'Cormorant Garamond',serif; font-size:17px; font-style:it
         <div class="place"><div class="place-name">Time Management</div><div class="place-note">9 AM dock, 7 PM departure. Lindos + Old City is ambitious but very doable with an early start and taxis. Alternatively, spend the whole day in the magnificent Medieval City.</div></div>
       </div>
     </div>
+
+    <div class="dress-box">
+      <div class="dress-box-title">👕 What to Wear</div>
+      <div class="dress-items">
+        <div class="dress-item"><div class="dress-item-icon">👟</div><div class="dress-item-text"><b>Sturdy closed-toe walking shoes</b> — 3+ km of Old Town cobblestones plus the steep, exposed climb to the Lindos Acropolis.</div></div>
+        <div class="dress-item"><div class="dress-item-icon">🩱</div><div class="dress-item-text"><b>Swimsuit + towel</b> — pack it for St. Paul's Bay right below the Acropolis, one of the prettiest swim spots in Greece.</div></div>
+        <div class="dress-item"><div class="dress-item-icon">🧴</div><div class="dress-item-text"><b>Sun hat, sunscreen, breathable layers</b> — the Lindos climb has no shade; water is essential.</div></div>
+        <div class="dress-item"><div class="dress-item-icon">🍷</div><div class="dress-item-text"><b>Casual dinner outfit</b> — nothing fancy needed for at Thomas or The Ritualist, just something comfortable after a day of walking.</div></div>
+      </div>
+    </div>
   </div>
 
   <!-- MAP: rhodes -->
@@ -470,6 +633,37 @@ footer p { font-family:'Cormorant Garamond',serif; font-size:17px; font-style:it
       <h2 class="section-title">🏺 <em>Ephesus</em></h2>
       <p class="section-desc">One of the most spectacular ancient cities on Earth — and you have 12 hours. Get there at 8 AM sharp before the heat and tour bus invasion. This will be one of the most memorable days of the trip.</p>
     </div>
+
+    <div class="day-schedule">
+      <div class="day-schedule-head">
+        <div class="day-schedule-title">📋 Today's Schedule</div>
+        <div class="day-schedule-window">Docked Port · Kusadasi, Turkey · 8:00 AM – 8:00 PM</div>
+      </div>
+      <div class="schedule-track">
+        <div class="schedule-stop boat"><div class="schedule-stop-icon">🚢</div><div class="schedule-stop-text"><div class="schedule-stop-time">8:00 AM</div><div class="schedule-stop-label">Off ship — pickup at Kusadasi Port</div></div></div>
+        <div class="schedule-stop"><div class="schedule-stop-icon">🏺</div><div class="schedule-stop-text"><div class="schedule-stop-time">9:00 AM – 1:30 PM</div><div class="schedule-stop-label">Booked tour — All-Inclusive: Best of Ephesus (approx. 4–5 hrs)</div></div></div>
+        <div class="schedule-stop boat"><div class="schedule-stop-icon">⚓</div><div class="schedule-stop-text"><div class="schedule-stop-time">7:30 PM</div><div class="schedule-stop-label">Back aboard — ship departs 8:00 PM</div></div></div>
+      </div>
+    </div>
+
+    <div class="tour-card">
+      <div class="tour-card-head">
+        <div class="tour-card-eyebrow">🎟 Your Booked Tour</div>
+        <div class="tour-card-meta">4–5 hrs · Tour Altinkum Travel · Kusadasi Port pickup</div>
+      </div>
+      <div class="tour-card-title">All-Inclusive: Best of Ephesus Tour</div>
+      <p class="tour-card-confirm">✅ Reserved — Tue, Aug 11, 2026 · 9:00 AM · 9 Adults · Booked by Alisa T · Ref #1387026953</p>
+      <p class="tour-card-desc">Direct pickup and drop-off at Kusadasi Port, timed to your ship's docking — entry tickets and lunch included, guaranteed on-time return. Covers the House of the Virgin Mary, the Ephesus ruins in full (Library of Celsus, Great Theatre), the Terrace Houses, and the Temple of Artemis, with a pass-by through Selçuk. Group or private options available.</p>
+      <div class="tour-card-stops">
+        <span class="tour-stop-chip"><b>House of the Virgin Mary</b> · 45 min</span>
+        <span class="tour-stop-chip"><b>Ephesus Ancient City</b> · 2 hrs</span>
+        <span class="tour-stop-chip"><b>Terrace Houses</b> · 30 min</span>
+        <span class="tour-stop-chip"><b>Temple of Artemis</b> · 30 min</span>
+        <span class="tour-stop-chip">pass-by: Selçuk</span>
+      </div>
+      <a class="tour-card-link" href="https://www.viator.com/tours/Kusadasi/Ephesus-Terrace-Houeses-Shore-excursion-in-halfday/d582-39776P14" target="_blank" rel="noopener">View Tour on Viator →</a>
+    </div>
+
     <div class="photo-strip">
       <div class="photo-item">
         <img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Celsus_Library_in_Ephesus.jpg" alt="Library Celsus">
@@ -512,6 +706,16 @@ footer p { font-family:'Cormorant Garamond',serif; font-size:17px; font-style:it
         <div class="place"><div class="place-name">3D Exit Theatre</div><div class="place-note">At the exit, a 10–15 min 3D animation shows Ephesus in its prime. Worth watching for context after walking the site.</div></div>
       </div>
     </div>
+
+    <div class="dress-box">
+      <div class="dress-box-title">👕 What to Wear</div>
+      <div class="dress-items">
+        <div class="dress-item"><div class="dress-item-icon">👟</div><div class="dress-item-text"><b>Closed-toe, non-slip shoes — mandatory.</b> The marble streets through Ephesus are uneven and genuinely slippery, even worn smooth in places.</div></div>
+        <div class="dress-item"><div class="dress-item-icon">🌡️</div><div class="dress-item-text"><b>Lightweight, breathable clothing</b> — this may be the hottest day of the trip, with heat reaching 40°C. Plan 4L of water per person.</div></div>
+        <div class="dress-item"><div class="dress-item-icon">🕊️</div><div class="dress-item-text"><b>Shoulders/knees covered</b> is respectful at the House of the Virgin Mary — a light layer or scarf works well and doubles as sun protection.</div></div>
+        <div class="dress-item"><div class="dress-item-icon">🧢</div><div class="dress-item-text"><b>Wide-brim hat and sunglasses</b> — the site is almost entirely uncovered, with little shade until the exit theatre.</div></div>
+      </div>
+    </div>
   </div>
 
   <!-- MAP: ephesus -->
@@ -537,6 +741,34 @@ footer p { font-family:'Cormorant Garamond',serif; font-size:17px; font-style:it
       <h2 class="section-title">🌀 <em>Mykonos</em></h2>
       <p class="section-desc">11 hours on Greece's most glamorous island. Early morning is magical here — take the first tender and you'll have the windmills practically to yourselves. Front-load your sightseeing; midday is wall-to-wall with cruise visitors.</p>
     </div>
+
+    <div class="day-schedule">
+      <div class="day-schedule-head">
+        <div class="day-schedule-title">📋 Today's Schedule</div>
+        <div class="day-schedule-window">Tender Port · 7:00 AM – 6:00 PM · Last tender 5:15 PM</div>
+      </div>
+      <div class="schedule-track">
+        <div class="schedule-stop boat"><div class="schedule-stop-icon">⛴</div><div class="schedule-stop-text"><div class="schedule-stop-time">7:00 AM</div><div class="schedule-stop-label">First tender — off ship</div></div></div>
+        <div class="schedule-stop"><div class="schedule-stop-icon">👩‍🍳</div><div class="schedule-stop-text"><div class="schedule-stop-time">9:00 AM – 12:00 PM</div><div class="schedule-stop-label">Booked event — Greek Cooking Class</div></div></div>
+        <div class="schedule-stop"><div class="schedule-stop-icon">🌀</div><div class="schedule-stop-text"><div class="schedule-stop-time">Afternoon</div><div class="schedule-stop-label">Self-guided (windmills, Little Venice, Ornos Beach)</div></div></div>
+        <div class="schedule-stop boat"><div class="schedule-stop-icon">⛴</div><div class="schedule-stop-text"><div class="schedule-stop-time">5:15 PM</div><div class="schedule-stop-label">Last tender — ship departs 6:00 PM</div></div></div>
+      </div>
+    </div>
+
+    <div class="tour-card">
+      <div class="tour-card-head">
+        <div class="tour-card-eyebrow">🎟 Your Booked Event</div>
+        <div class="tour-card-meta">3 hrs · 9:00 AM – 12:00 PM</div>
+      </div>
+      <div class="tour-card-title">Greek Cooking Class</div>
+      <p class="tour-card-desc">A hands-on morning learning to cook traditional Greek dishes — a nice change of pace before an afternoon of sightseeing and beach time. Typical classes cover classics like tzatziki, dolmades, moussaka, and baklava, often finishing with a shared meal of what you've made.</p>
+      <div class="tour-card-stops">
+        <span class="tour-stop-chip">Hands-on cooking</span>
+        <span class="tour-stop-chip">Traditional Greek dishes</span>
+        <span class="tour-stop-chip">Shared meal at the end</span>
+      </div>
+    </div>
+
     <div class="photo-strip">
       <div class="photo-item">
         <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Boats-in-Mykonos.jpg" alt="Mykonos harbor">
@@ -579,6 +811,17 @@ footer p { font-family:'Cormorant Garamond',serif; font-size:17px; font-style:it
         <div class="place"><div class="place-name">The Winds</div><div class="place-note">Mykonos is reliably windy even in summer — bring a light layer for the lighthouse and early morning. The wind makes August here more pleasant than most Greek islands.</div></div>
       </div>
     </div>
+
+    <div class="dress-box">
+      <div class="dress-box-title">👕 What to Wear</div>
+      <div class="dress-items">
+        <div class="dress-item"><div class="dress-item-icon">👩‍🍳</div><div class="dress-item-text"><b>Comfortable, casual clothes for the cooking class</b> — closed-toe shoes are a good idea around a working kitchen, and something you don't mind getting a little flour on.</div></div>
+        <div class="dress-item"><div class="dress-item-icon">🩱</div><div class="dress-item-text"><b>Swimsuit + cover-up</b> — Ornos Beach is on the plan for the afternoon, so pack it from the start.</div></div>
+        <div class="dress-item"><div class="dress-item-icon">👡</div><div class="dress-item-text"><b>Sandals for the beach, sturdier shoes for town</b> — the windmill hill and Chora's cobblestone alleys are easier in trainers than flip-flops.</div></div>
+        <div class="dress-item"><div class="dress-item-icon">🛵</div><div class="dress-item-text"><b>Closed-toe shoes and a light jacket if renting a scooter/ATV</b> — required for safety, and it's genuinely windy on the lighthouse road.</div></div>
+        <div class="dress-item"><div class="dress-item-icon">✨</div><div class="dress-item-text"><b>A dressier outfit for Little Venice</b> — Mykonos leans stylish in the evening if you're out for sunset drinks or dinner.</div></div>
+      </div>
+    </div>
   </div>
 
   <!-- MAP: mykonos -->
@@ -604,6 +847,40 @@ footer p { font-family:'Cormorant Garamond',serif; font-size:17px; font-style:it
       <h2 class="section-title">🏙️ <em>Thessaloniki</em></h2>
       <p class="section-desc">Greece's most underrated city. Byzantine churches, Roman monuments, a magnificent waterfront, and arguably the best food scene in the country. 12 hours to feast and explore.</p>
     </div>
+
+    <div class="day-schedule">
+      <div class="day-schedule-head">
+        <div class="day-schedule-title">📋 Today's Schedule</div>
+        <div class="day-schedule-window">Docked Port · 9:00 AM – 9:00 PM</div>
+      </div>
+      <div class="schedule-track">
+        <div class="schedule-stop boat"><div class="schedule-stop-icon">🚢</div><div class="schedule-stop-text"><div class="schedule-stop-time">9:00 AM</div><div class="schedule-stop-label">Off ship</div></div></div>
+        <div class="schedule-stop"><div class="schedule-stop-icon">🚌</div><div class="schedule-stop-text"><div class="schedule-stop-time">10:00 AM – 6:00 PM</div><div class="schedule-stop-label">Booked tour — Hop-on Hop-off Sightseeing Thessaloniki (board anytime, ~70 min per loop)</div></div></div>
+        <div class="schedule-stop boat"><div class="schedule-stop-icon">🚢</div><div class="schedule-stop-text"><div class="schedule-stop-time">8:45 PM</div><div class="schedule-stop-label">Back to ship — departs 9:00 PM</div></div></div>
+      </div>
+    </div>
+
+    <div class="tour-card">
+      <div class="tour-card-head">
+        <div class="tour-card-eyebrow">🎟 Your Booked Tour</div>
+        <div class="tour-card-meta">Hop-on hop-off · ~70 min full loop · Every 30 min in Aug</div>
+      </div>
+      <div class="tour-card-title">Hop-on Hop-off Sightseeing Thessaloniki</div>
+      <p class="tour-card-confirm">✅ Reserved — Thu, Aug 13, 2026 · 7 Adults · Booked by Alisa T · Ref #1415105489 · No fixed start time, board anytime</p>
+      <p class="tour-card-desc">An open-top bus loop with 8 stops — ride the full circuit once for an overview, then hop off wherever you want to linger. Ticket redemption is at the White Tower; several reviewers mention buying tickets right at the cruise port and boarding immediately. Buses run every 30 minutes in August, 10 AM–6 PM.</p>
+      <div class="tour-card-stops">
+        <span class="tour-stop-chip"><b>1</b> White Tower</span>
+        <span class="tour-stop-chip"><b>2</b> Archaeological Museum</span>
+        <span class="tour-stop-chip"><b>3</b> Hagia Sophia</span>
+        <span class="tour-stop-chip"><b>4</b> Church of Saint Demetrius</span>
+        <span class="tour-stop-chip"><b>5</b> Ano Poli</span>
+        <span class="tour-stop-chip"><b>6</b> Arch of Galerius</span>
+        <span class="tour-stop-chip"><b>7</b> Aristotelous Square</span>
+        <span class="tour-stop-chip"><b>8</b> Port of Thessaloniki</span>
+      </div>
+      <a class="tour-card-link" href="https://www.viator.com/tours/Thessaloniki/Hop-on-hop-off-Sightseeing-Thessaloniki/d23853-356869P4" target="_blank" rel="noopener">View Tour on Viator →</a>
+    </div>
+
     <div class="photo-strip">
       <div class="photo-item">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/White_Tower_%28Thessaloniki%29.jpg" alt="White Tower">
@@ -644,6 +921,16 @@ footer p { font-family:'Cormorant Garamond',serif; font-size:17px; font-style:it
         <div class="place"><div class="place-name">Ano Poli Option</div><div class="place-note">Byzantine walls and towers with panoramic views. 30-min uphill walk from the center — a great add-on for anyone who wants more to explore.</div></div>
         <div class="place"><div class="place-name">The Food Culture</div><div class="place-note">Thessalonians are obsessed with food. Try bougatsa (custard pastry), koulouri (sesame rings), and Greek coffee from a traditional kafeneio. The food scene here rivals Athens.</div></div>
         <div class="place"><div class="place-name">Evening Vibe</div><div class="place-note">Thessaloniki comes alive at night. The waterfront, Ladadika district, and Aristotelous Square are beautiful in the evening. You have until 9 PM — use every hour.</div></div>
+      </div>
+    </div>
+
+    <div class="dress-box">
+      <div class="dress-box-title">👕 What to Wear</div>
+      <div class="dress-items">
+        <div class="dress-item"><div class="dress-item-icon">👟</div><div class="dress-item-text"><b>Comfortable walking shoes</b> — the waterfront promenade is 3+ km, and Ano Poli adds a steep uphill stretch if you go up.</div></div>
+        <div class="dress-item"><div class="dress-item-icon">🧥</div><div class="dress-item-text"><b>A light layer for the hop-on hop-off bus</b> — it's open-top, so there's a breeze even in August heat.</div></div>
+        <div class="dress-item"><div class="dress-item-icon">☀️</div><div class="dress-item-text"><b>Sunscreen and a hat</b> — you'll be outdoors most of the day between the bus, the waterfront, and Aristotelous Square.</div></div>
+        <div class="dress-item"><div class="dress-item-icon">🍷</div><div class="dress-item-text"><b>Smart-casual for the evening</b> — Ladadika district and dinner at Kanoula or The Rouga have a nicer, night-out feel.</div></div>
       </div>
     </div>
   </div>
