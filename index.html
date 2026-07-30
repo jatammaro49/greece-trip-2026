@@ -83,6 +83,9 @@ body { font-family:'DM Sans',sans-serif; background:#162940; color:var(--white);
 .col-title::after { content:''; flex:1; height:1px; background:rgba(201,150,63,0.2); }
 .place { padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.05); }
 .place:last-child { border-bottom:none; }
+.place.on-tour { border:1.5px solid rgba(111,207,151,0.55); background:rgba(111,207,151,0.06); border-radius:9px; padding:12px 14px 10px; margin-bottom:6px; }
+.place.on-tour:last-child { margin-bottom:0; }
+.on-tour-badge { display:inline-block; font-family:'Bebas Neue',sans-serif; font-size:10px; letter-spacing:1.8px; color:#6fcf97; background:rgba(111,207,151,0.14); border:1px solid rgba(111,207,151,0.4); border-radius:12px; padding:2px 10px; margin-top:6px; }
 .place-name { font-size:14px; font-weight:500; color:var(--white); margin-bottom:3px; }
 .place-note { font-size:12px; color:var(--muted); line-height:1.62; }
 .place-tip { font-size:11px; color:var(--sky); margin-top:3px; font-style:italic; }
@@ -362,7 +365,7 @@ footer p { font-family:'Cormorant Garamond',serif; font-size:17px; font-style:it
     <div class="places-grid">
       <div>
         <div class="col-title">🗿 Sites to See</div>
-        <div class="place"><div class="stars">★★★★★ 4.8</div><div class="place-name">Acropolis & Parthenon</div><div class="place-note">The crown jewel of ancient Greece. Go at 8 AM opening to beat heat and crowds. Allow 2.5 hrs for the full site.</div><div class="place-tip">💡 Book tickets online — €30/person. Combo ticket covers the Agora.</div></div>
+        <div class="place on-tour"><div class="stars">★★★★★ 4.8</div><div class="place-name">Acropolis & Parthenon</div><div class="place-note">The crown jewel of ancient Greece. Go at 8 AM opening to beat heat and crowds. Allow 2.5 hrs for the full site.</div><div class="place-tip">💡 Book tickets online — €30/person. Combo ticket covers the Agora.</div><span class="on-tour-badge">✓ On your booked tour</span></div>
         <div class="place"><div class="stars">★★★★★ 4.7</div><div class="place-name">Ancient Agora</div><div class="place-note">The civic heart of ancient Athens. The Temple of Hephaestus is one of the best-preserved Greek temples on Earth. The Stoa of Attalos museum inside is excellent.</div><div class="place-tip">💡 Included in Acropolis combo ticket — don't skip it.</div></div>
         <div class="place"><div class="stars">★★★★☆ 4.6</div><div class="place-name">National Archaeological Museum</div><div class="place-note">Mask of Agamemnon, Artemision Bronze — world class. Note: Tuesday hours are 1–8 PM only.</div></div>
         <div class="place"><div class="stars">★★★★☆ 4.4</div><div class="place-name">Temple of Olympian Zeus</div><div class="place-note">Massive Corinthian columns near Hadrian's Arch. Impressive even from outside the fence for free.</div></div>
@@ -475,7 +478,7 @@ footer p { font-family:'Cormorant Garamond',serif; font-size:17px; font-style:it
         <div class="place"><div class="stars">★★★★★ 4.8</div><div class="place-name">Fira to Oia Caldera Hike</div><div class="place-note">~10 km along the volcanic caldera rim. Allow 3–4 hours. Jaw-dropping views the entire way.</div><div class="place-tip">⚡ Start at 7 AM right off the tender — beat the heat and arrive Oia for sunset!</div></div>
         <div class="place"><div class="stars">★★★★☆ 4.4</div><div class="place-name">Akrotiri Archaeological Site</div><div class="place-note">The Minoan "Pompeii" of Santorini — buried by the 1600 BC eruption. Covered site, comfortable even in heat. Only 5% excavated so far!</div><div class="place-tip">💡 Closed Tuesdays. Your visit is Sunday — perfect!</div></div>
         <div class="place"><div class="stars">★★★★☆ 4.5</div><div class="place-name">Akrotiri Lighthouse</div><div class="place-note">Southern tip of the island. Stunning sea and cliff views. Best early morning or late afternoon. Very limited parking.</div></div>
-        <div class="place"><div class="stars">★★★★★ 4.7</div><div class="place-name">Castle of Oia at Sunset</div><div class="place-note">The iconic blue-dome sunset spot. Arrive 1 hour before sunset to claim a good viewing perch. Allow 2 hrs to explore all of Oia village.</div><div class="place-tip">💡 The hike ends right here — perfect timing!</div></div>
+        <div class="place on-tour"><div class="stars">★★★★★ 4.7</div><div class="place-name">Castle of Oia at Sunset</div><div class="place-note">The iconic blue-dome sunset spot. Arrive 1 hour before sunset to claim a good viewing perch. Allow 2 hrs to explore all of Oia village.</div><div class="place-tip">💡 The hike ends right here — perfect timing!</div><span class="on-tour-badge">✓ On your booked tour</span></div>
         <div class="place"><div class="stars">★★★★☆ 4.7</div><div class="place-name">Heart of Santorini</div><div class="place-note">Short hike to a heart-shaped rock formation with caldera views. Off the beaten path, easy trail, stunning photos.</div></div>
       </div>
       <div>
@@ -579,9 +582,9 @@ footer p { font-family:'Cormorant Garamond',serif; font-size:17px; font-style:it
     <div class="places-grid">
       <div>
         <div class="col-title">🗿 Sites to See</div>
-        <div class="place"><div class="stars">★★★★★ 4.8</div><div class="place-name">Medieval City of Rhodes</div><div class="place-note">UNESCO World Heritage Site. One of the best-preserved medieval towns on Earth. The Street of Knights is extraordinary. Free to wander — plan 2–3 hours.</div></div>
+        <div class="place on-tour"><div class="stars">★★★★★ 4.8</div><div class="place-name">Medieval City of Rhodes</div><div class="place-note">UNESCO World Heritage Site. One of the best-preserved medieval towns on Earth. The Street of Knights is extraordinary. Free to wander — plan 2–3 hours.</div><span class="on-tour-badge">✓ On your booked tour</span></div>
         <div class="place"><div class="stars">★★★★☆ 4.6</div><div class="place-name">Palace of the Grand Master</div><div class="place-note">Inside the walled city — enormous and beautifully preserved. Mosaic floors, stunning architecture. "Like stepping into a Disney movie." €20 entry.</div></div>
-        <div class="place"><div class="stars">★★★★☆ 4.6</div><div class="place-name">Lindos Acropolis</div><div class="place-note">45 min south of Rhodes Town. Doric acropolis on a cliff above a gorgeous white village and turquoise bay. Steep climb, magnificent views. €20 entry.</div><div class="place-tip">💡 Swim at St. Paul's Bay below after climbing — crystal clear water!</div></div>
+        <div class="place on-tour"><div class="stars">★★★★☆ 4.6</div><div class="place-name">Lindos Acropolis</div><div class="place-note">45 min south of Rhodes Town. Doric acropolis on a cliff above a gorgeous white village and turquoise bay. Steep climb, magnificent views. €20 entry.</div><div class="place-tip">💡 Swim at St. Paul's Bay below after climbing — crystal clear water!</div><span class="on-tour-badge">✓ On your booked tour</span></div>
         <div class="place"><div class="stars">★★★★☆ 4.6</div><div class="place-name">Archaeological Site of Kamiros</div><div class="place-note">An entire ancient Greek city on a hillside with sea views. Quieter and very atmospheric. €10 entry, free parking.</div></div>
       </div>
       <div>
@@ -685,9 +688,9 @@ footer p { font-family:'Cormorant Garamond',serif; font-size:17px; font-style:it
     <div class="places-grid">
       <div>
         <div class="col-title">🗿 Sites to See</div>
-        <div class="place"><div class="stars">★★★★★ 4.8</div><div class="place-name">Ephesus Ancient City</div><div class="place-note">Library of Celsus, 25,000-seat Great Theatre, marble-paved streets — extraordinarily preserved. Plan 3–4 hours. Entry ~€40/person for foreigners.</div><div class="place-tip">⚡ Arrive at 8 AM opening — ferociously hot and crowded by 10:30 AM.</div></div>
-        <div class="place"><div class="place-name">Terrace Houses (Extra Entry ~€15)</div><div class="place-note">Roman-era homes with 2,000 year-old mosaics and frescoes still intact. Shaded, air-conditioned, and absolutely remarkable. Do not skip this.</div><div class="place-tip">💡 Buy separately at the gate or book online in advance.</div></div>
-        <div class="place"><div class="stars">★★★★☆ 4.2</div><div class="place-name">Temple of Artemis</div><div class="place-note">One of the Seven Wonders of the Ancient World. One column still stands — storks nest on top in spring. Free entry, 5 min from the site. Profoundly humbling.</div></div>
+        <div class="place on-tour"><div class="stars">★★★★★ 4.8</div><div class="place-name">Ephesus Ancient City</div><div class="place-note">Library of Celsus, 25,000-seat Great Theatre, marble-paved streets — extraordinarily preserved. Plan 3–4 hours. Entry ~€40/person for foreigners.</div><div class="place-tip">⚡ Arrive at 8 AM opening — ferociously hot and crowded by 10:30 AM.</div><span class="on-tour-badge">✓ On your booked tour</span></div>
+        <div class="place on-tour"><div class="place-name">Terrace Houses (Extra Entry ~€15)</div><div class="place-note">Roman-era homes with 2,000 year-old mosaics and frescoes still intact. Shaded, air-conditioned, and absolutely remarkable. Do not skip this.</div><div class="place-tip">💡 Buy separately at the gate or book online in advance.</div><span class="on-tour-badge">✓ On your booked tour</span></div>
+        <div class="place on-tour"><div class="stars">★★★★☆ 4.2</div><div class="place-name">Temple of Artemis</div><div class="place-note">One of the Seven Wonders of the Ancient World. One column still stands — storks nest on top in spring. Free entry, 5 min from the site. Profoundly humbling.</div><span class="on-tour-badge">✓ On your booked tour</span></div>
         <div class="place"><div class="stars">★★★★☆ 4.6</div><div class="place-name">Kusadasi Castle</div><div class="place-note">10-minute walk from the cruise port. Ottoman castle on a small island — good if you return with time to spare. €10 entry.</div></div>
         <div class="place"><div class="place-name">Selçuk Town & Museum</div><div class="place-note">Charming town next to Ephesus holding the actual artifacts from the site. Great for lunch and a very authentic, non-touristy experience.</div></div>
       </div>
@@ -902,11 +905,11 @@ footer p { font-family:'Cormorant Garamond',serif; font-size:17px; font-style:it
     <div class="places-grid">
       <div>
         <div class="col-title">🗿 Sites to See</div>
-        <div class="place"><div class="stars">★★★★☆ 4.7</div><div class="place-name">White Tower</div><div class="place-note">City's iconic landmark on the waterfront. Museum traces Thessaloniki's history across multiple floors. Panoramic top view — sea, city, and Mt. Olympus on clear days. €6 entry.</div></div>
-        <div class="place"><div class="stars">★★★★☆ 4.7</div><div class="place-name">Aristotelous Square</div><div class="place-note">Grand neoclassical square sweeping to the sea. The city's living room — have a coffee here and watch the world go by. Gorgeous at golden hour.</div></div>
-        <div class="place"><div class="stars">★★★★☆ 4.7</div><div class="place-name">Arch of Galerius (Kamara)</div><div class="place-note">4th-century Roman triumphal arch with intricate battle reliefs. Free to walk through. Part of a complex with the massive Rotunda — living ancient history in the middle of a modern city.</div></div>
-        <div class="place"><div class="stars">★★★★☆ 4.7</div><div class="place-name">Archaeological Museum</div><div class="place-note">Gold artifacts from Macedonian kings, stunning mosaics. Less crowded than Athens equivalents. Audio guides available. Plan 1.5–2 hours.</div></div>
-        <div class="place"><div class="place-name">Ano Poli (Upper City)</div><div class="place-note">Byzantine walls, traditional houses, and panoramic city views. 30-min uphill walk from the center — a rewarding detour with sweeping views.</div></div>
+        <div class="place on-tour"><div class="stars">★★★★☆ 4.7</div><div class="place-name">White Tower</div><div class="place-note">City's iconic landmark on the waterfront. Museum traces Thessaloniki's history across multiple floors. Panoramic top view — sea, city, and Mt. Olympus on clear days. €6 entry.</div><span class="on-tour-badge">✓ On your booked tour</span></div>
+        <div class="place on-tour"><div class="stars">★★★★☆ 4.7</div><div class="place-name">Aristotelous Square</div><div class="place-note">Grand neoclassical square sweeping to the sea. The city's living room — have a coffee here and watch the world go by. Gorgeous at golden hour.</div><span class="on-tour-badge">✓ On your booked tour</span></div>
+        <div class="place on-tour"><div class="stars">★★★★☆ 4.7</div><div class="place-name">Arch of Galerius (Kamara)</div><div class="place-note">4th-century Roman triumphal arch with intricate battle reliefs. Free to walk through. Part of a complex with the massive Rotunda — living ancient history in the middle of a modern city.</div><span class="on-tour-badge">✓ On your booked tour</span></div>
+        <div class="place on-tour"><div class="stars">★★★★☆ 4.7</div><div class="place-name">Archaeological Museum</div><div class="place-note">Gold artifacts from Macedonian kings, stunning mosaics. Less crowded than Athens equivalents. Audio guides available. Plan 1.5–2 hours.</div><span class="on-tour-badge">✓ On your booked tour</span></div>
+        <div class="place on-tour"><div class="place-name">Ano Poli (Upper City)</div><div class="place-note">Byzantine walls, traditional houses, and panoramic city views. 30-min uphill walk from the center — a rewarding detour with sweeping views.</div><span class="on-tour-badge">✓ On your booked tour</span></div>
       </div>
       <div>
         <div class="col-title">🍽️ Restaurants</div>
